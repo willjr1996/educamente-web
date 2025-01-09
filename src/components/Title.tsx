@@ -11,3 +11,4 @@ export function Title({ name }: TitleProps) {
     </Head>
   )
 }
+

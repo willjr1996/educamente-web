@@ -9,8 +9,11 @@ import {
   FormLabel
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useState } from 'react'
+
 
 export default function Login() {
+  const [telefone, setTelefone] = useState('')
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
@@ -35,7 +38,6 @@ export default function Login() {
               type="email"
               placeholder="Escreva seu email aqui"
             />
-
             <FormLabel htmlFor="email">E-mail: </FormLabel>
             <Input
               name="password"
@@ -59,7 +61,7 @@ export default function Login() {
             </Button>
           </Flex>
         </Flex>
-        <Flex justify="flex-end" w="100%" mt="6" px="390">
+        <Flex justify="flex-end" w="100%" mt="6" px="630">
           <Link href="">
             <Text>Esqueceu a senha?</Text>
           </Link>

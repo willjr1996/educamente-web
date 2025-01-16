@@ -29,6 +29,14 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/cadastro": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/cadastro.js"
+>>>>>>> 72df3732b8f922cbdb149d5b28feee0c5de10cd7
     ]
   },
   "ampFirstPages": []

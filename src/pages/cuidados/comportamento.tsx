@@ -6,8 +6,20 @@ VStack,
 Image,
 } from "@chakra-ui/react";
 
+import { Menu } from "~components/Menu";
+import Link from 'next/link'
 export default function EducacaoInfantil() {
   return (
+    <>
+         <Link href={'/'}>
+        <Image
+          src={'/images/logo.png'}
+          alt="logo"
+          width={'88px'}
+          margin="10px"
+        />
+      </Link>
+    <Menu/>
     <Box
       bg="#b3f0db"
       w="100vw"
@@ -16,7 +28,7 @@ export default function EducacaoInfantil() {
       justifyContent="center"
       alignItems="center"
       position="relative"
-    >
+      >
 
       <Box position="absolute" top="20px" left="20px">
         <Image src="/images/duvida.png/" w="132px" h="132px" borderRadius="50%"/>
@@ -34,7 +46,7 @@ export default function EducacaoInfantil() {
           p={4}
           boxShadow="lg"
           color="white"
-        >
+          >
           <Text fontSize="md" >
             A educação infantil deve ser baseada no respeito, incentivando a
             curiosidade das crianças e promovendo um ambiente de aprendizado
@@ -49,7 +61,7 @@ export default function EducacaoInfantil() {
           p={4}
           boxShadow="lg"
           color="white"
-        >
+          >
           <Text fontSize="md">
             Estabelecer uma rotina diária de atividades lúdicas e educativas
             estimula o desenvolvimento cognitivo e emocional, preparando as
@@ -64,7 +76,7 @@ export default function EducacaoInfantil() {
           p={4}
           boxShadow="lg"
           color="white"
-        >
+          >
           <Text fontSize="md">
             Incentivar o diálogo e a escuta ativa nas crianças ajuda a
             desenvolver habilidades sociais, fortalecendo a comunicação e o
@@ -73,5 +85,6 @@ export default function EducacaoInfantil() {
         </Box>
       </VStack>
     </Box>
+      </>
   );
 }

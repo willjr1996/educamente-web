@@ -16,12 +16,15 @@ export default function Cadastro() {
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
+        <Link href={'/'}>
         <Image
           src={'/images/logo.png'}
           alt="logo"
           width={'88px'}
           margin="10px"
+          cursor="pointer"
         />
+        </Link>
         <Text
           fontSize="90"
           color="#146B49"
@@ -44,13 +47,16 @@ export default function Cadastro() {
           flexDir="column"
         >
           <Stack spacing="2">
-    
             <Input
               id="nome"
               name="nome"
               label="Nome: "
               type="text"
               placeholder="Escreva seu nome completo"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
 
             <FormLabel htmlFor="email">E-mail: </FormLabel>
@@ -59,46 +65,60 @@ export default function Cadastro() {
               name="email"
               type="email"
               placeholder="Escreva seu email aqui"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
 
-            <FormLabel htmlFor="cpf">CPF: </FormLabel>
-            <Input
-              id="cpf"
-              name="cpf"
-              type="text"
-              placeholder="Escreva aqui seu CPF"
-            />
+            <InputMask mask="999.999.999-99">
+              {(inputProps: any) => (
+                <Input
+                  name="cpf"
+                  type="text"
+                  label="CPF: "
+                  placeholder="000.000.000-00"
+                  {...inputProps}
+                  borderColor="black"
+                  borderWidth="1px"
+                  bg="rgba(5, 166, 89, 0.7)"
+                  focusBorderColor="rgba(5, 166, 89, 0.7)"
+                />
+              )}
+            </InputMask>
 
-            <Flex flexDir="row" alignItems="center">
-              <FormLabel htmlFor="dtNascimento">Nascimento: </FormLabel>
-              <Input
-                id="dtNascimento"
-                name="dtNascimento"
-                type="number"
-                placeholder="Dia/Mês/Ano"
-                mr={10}
-              />
+            <Flex flexDir="row" alignItems="center" gap={4}>
+              <InputMask mask="99/99/9999">
+                {(inputProps: any) => (
+                  <Input
+                    name="nascimento"
+                    type="text"
+                    label="Data de Nascimento: "
+                    placeholder="Dia/Mês/Ano"
+                    {...inputProps}
+                    borderColor="black"
+                    borderWidth="1px"
+                    bg="rgba(5, 166, 89, 0.7)"
+                    focusBorderColor="rgba(5, 166, 89, 0.7)"
+                  />
+                )}
+              </InputMask>
 
-              {/* <InputMask
-                mask="(99) 99999-9999"
-              >
+              <InputMask mask="(99) 99999-9999">
                 {(inputProps: any) => (
                   <Input
                     name="telefone"
                     type="text"
                     label="Telefone: "
+                    placeholder="(00) 00000-0000"
                     {...inputProps}
+                    borderColor="black"
+                    borderWidth="1px"
+                    bg="rgba(5, 166, 89, 0.7)"
+                    focusBorderColor="rgba(5, 166, 89, 0.7)"
                   />
                 )}
-              </InputMask> */}
-
-              <FormLabel htmlFor="telefone">Telefone: </FormLabel>
-              <Input
-                id="telefone"
-                name="telefone"
-                type="number"
-                // placeholder=""
-              />
+              </InputMask>
             </Flex>
 
             <FormLabel htmlFor="senha">Senha: </FormLabel>
@@ -107,6 +127,10 @@ export default function Cadastro() {
               name="senha"
               type="password"
               placeholder="Digite sua senha"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
 
             <FormLabel htmlFor="confirmaSenha">Confirme a Senha</FormLabel>
@@ -115,6 +139,10 @@ export default function Cadastro() {
               name="confirmaSenha"
               type="password"
               placeholder="Confirme sua senha"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
           </Stack>
           <Flex justify="right" align="center" w="100%" mt="6">

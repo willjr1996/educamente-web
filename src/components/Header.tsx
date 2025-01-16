@@ -1,16 +1,14 @@
 import {
   Box,
   Flex,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Icon,
   Text,
   Avatar,
   Image,
   Divider
 } from "@chakra-ui/react";
-import { Search2Icon, BellIcon } from "@chakra-ui/icons";
+import { BellIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 export function Header() {
   return (
@@ -25,10 +23,12 @@ export function Header() {
           justifyContent="center"
           borderRadius="md"
         >
+          <Link href={"/"} >
           <Image src="/images/logo.png" />
+          </Link>
         </Box>
 
-        <Flex align="center" gap={6}>
+        <Flex align="center" gap={6} >
           <Flex flexDir="column" align="center" cursor="pointer">
             <Icon as={BellIcon} boxSize={6} color="green.700" />
             <Text fontSize="sm" color="green.700" ml={1}>

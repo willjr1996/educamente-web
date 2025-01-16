@@ -6,22 +6,46 @@ import {
   Text,
   Image,
   Input,
-  FormLabel
+  FormLabel,
 } from '@chakra-ui/react'
 import Link from 'next/link'
-import { useState } from 'react'
-
+import React from 'react'
 
 export default function Login() {
-  const [telefone, setTelefone] = useState('')
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
-        <Image src={'/images/logo.png'} alt="logo" width={'88px'} margin="10px" />
-        <Text fontSize="90" color="#146B49" w="100%" align="center" >EducaMente</Text>
+        <Link href={'/'}>
+          <Image
+            src={'/images/logo.png'}
+            alt="logo"
+            width={'88px'}
+            margin="10px"
+          />
+        </Link>
+        <Text fontSize="90" color="#146B49" w="100%" align="center">
+          EducaMente
+        </Text>
       </Flex>
-      <Text fontSize="90" border="auto" color="#146B49" w="100%" align="center" mt="2">LOGIN</Text>
-      <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" border="auto" mt="-220">
+      <Text
+        fontSize="90"
+        border="auto"
+        color="#146B49"
+        w="100%"
+        align="center"
+        mt="2"
+      >
+        LOGIN
+      </Text>
+      <Flex
+        flexDir="column"
+        align="center"
+        justify="center"
+        h="100vh"
+        overflow="hidden"
+        border="auto"
+        mt="-220"
+      >
         <Flex
           as="form"
           w="100%"
@@ -37,26 +61,31 @@ export default function Login() {
               name="email"
               type="email"
               placeholder="Escreva seu email aqui"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
             <FormLabel htmlFor="email">E-mail: </FormLabel>
             <Input
               name="password"
               type="password"
               placeholder="Escreva aqui sua senha de acesso"
+              borderColor="black"
+              borderWidth="1px"
+              bg="rgba(5, 166, 89, 0.7)"
+              focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
           </Stack>
           <Flex justify="space-between" align="center" w="100%" mt="6">
             <Flex w="100%" justify="center">
               <Link href="cadastro">
-                <Text fontSize="sm" cursor="pointer">Não tem cadastro? Faça agora!</Text>
+                <Text fontSize="sm" cursor="pointer">
+                  Não tem cadastro? Faça agora!
+                </Text>
               </Link>
             </Flex>
-            <Button
-              w={140}
-              type="submit"
-              colorScheme="green"
-              size="lg"
-            >
+            <Button w={140} type="submit" colorScheme="green" size="lg">
               Entrar
             </Button>
           </Flex>

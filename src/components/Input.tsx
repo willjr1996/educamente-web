@@ -3,10 +3,9 @@ import {
     FormLabel,
     FormControl,
     InputProps as ChakraInputProps,
-    FormErrorMessage,
   } from '@chakra-ui/react'
   import { forwardRef, ForwardRefRenderFunction } from 'react'
-  import { FieldError } from 'react-hook-form'
+  // import { FieldError } from 'react-hook-form'
 
 export interface InputProps extends ChakraInputProps {
     name:string
@@ -41,5 +40,3 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   }
   
   export const Input = forwardRef(InputBase)
-
-  //Baseado no OrganiConecta

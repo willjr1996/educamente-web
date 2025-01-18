@@ -1,9 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/cuidados/alimentacao": "pages/cuidados/alimentacao.js",
-  "/cuidados/comportamento": "pages/cuidados/comportamento.js",
-  "/": "pages/index.js",
-  "/cuidados/saudeMental": "pages/cuidados/saudeMental.js"
+  "/_error": "pages/_error.js",
+  "/": "pages/index.js"
 }

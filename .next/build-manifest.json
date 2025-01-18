@@ -29,21 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/cuidados/alimentacao": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cuidados/alimentacao.js"
-    ],
-    "/cuidados/comportamento": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cuidados/comportamento.js"
-    ],
-    "/cuidados/saudeMental": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cuidados/saudeMental.js"
     ]
   },
   "ampFirstPages": []

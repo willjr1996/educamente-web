@@ -1,142 +1,107 @@
-/* eslint-disable jsx-a11y/alt-text */
 import {
   Box,
   Flex,
   Text,
-  Avatar,
-  VStack,
-  Image
+  Stack,
+  Card, 
+  Heading,
+  CardHeader, 
+  CardBody, 
+  CardFooter,
+  Button
 } from "@chakra-ui/react";
 // import { Header } from '~components/Header'
 import Link from 'next/link'
 import Footer from "~components/Footer";
+import HeaderPrincipal from "~components/HeaderPrincipal";
+
 
 
 export default function App() {
+
   return (
     <>
-      <Box bg="#adf6db" height="100vh" display="flex" flexDirection="column">
-        <Box bg="white" p={4} boxShadow="sm">
-          <Flex align="center" justify="space-between">
-            <Box
-              w="50px"
-              h="50px"
-              border="2px solid lightblue"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="md"
-            >
-              <Image src="/images/logo.png" />
-            </Box>
-
-            <Flex align="center" gap={4}>
-              <Link href="/cadastro">
-                <Text fontSize="sm" color="green.700" cursor="pointer">
-                  Cadastre-se
-                </Text>
-              </Link>
-              <Avatar size="sm" bg="green.700" color="white" />
-              <Link href="/login">
-                <Text fontSize="sm" color="green.700" cursor="pointer">
-                  Entrar
-                </Text>
-              </Link>
-            </Flex>
-          </Flex>
+    <HeaderPrincipal />
+    <Box bg="#adf6db" height="100vh" >
+    <Stack spacing={4} align="center" justify="center" height="100vh">
+        {/* Quadrado Preto 1 */}
+        <Box
+          w="100px"
+          h="100px"
+          bg="black"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text color="white">Quadrado 1</Text>
         </Box>
 
-        <VStack spacing={8} py={8} align="center" flex="1">
-          <Flex
-            // bg="green.100"
-            p={6}
-            borderRadius="md"
-            boxShadow="sm"
-            align="center"
-            w="90%"
-            maxW="800px"
-          >
-            <Box
-              w="250px"
-              h="145px"
-              // bg="green.300"
-              borderRadius="full"
-              mr={4}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              cursor="pointer"
-            >
-              <Link href="/cuidados/comportamento">
-                <Image src="/images/duvidas.png" />
-              </Link>
-            </Box>
-            <Text>
-              Acesse informações e sugestões confiáveis de cuidados para seus
-              filhos de acordo com a idade
-            </Text>
-          </Flex>
+        {/* Quadrado Preto 2 */}
+        <Box
+          w="100px"
+          h="100px"
+          bg="black"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text color="white">Quadrado 2</Text>
+        </Box>
 
-          <Flex
-            // bg="green.100"
-            p={6}
-            borderRadius="md"
-            boxShadow="sm"
-            align="center"
-            w="90%"
-            maxW="800px"
-          >
-            <Box
-              w="250px"
-              h="60px"
-              // bg="green.300"
-              borderRadius="full"
-              mr={4}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Image src="/images/confiante.png" />
-            </Box>
-            <Text>
-              Entre em nossa comunidade de pais e nos ajude compartilhando suas
-              experiências com seus filhos
-            </Text>
-          </Flex>
+        {/* Quadrado Preto 3 */}
+        <Box
+          w="100px"
+          h="100px"
+          bg="black"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text color="white">Quadrado 3</Text>
+        </Box>
 
-          <Flex
-            // bg="green.100"
-            p={6}
-            borderRadius="md"
-            boxShadow="sm"
-            align="center"
-            w="90%"
-            maxW="700px"
-          >
-            <Box
-              w="250px"
-              h="250px"
-              // bg="green.300"
-              borderRadius="full"
-              mr={4}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Image src="/images/heal.png" />
-            </Box>
-            <Text>
-              <Text fontWeight="bold">Dúvidas?</Text> Entre em contato com nossa
-              equipe de suporte para ajudar com suas dúvidas.
-            </Text>
-          </Flex>
-        </VStack>
-
-        {/* <Box bg="white" textAlign="center" py={4}>
-        <Text color="#146B49" fontWeight="bold">FOOTER</Text>
-      </Box> */}
-        <Footer />
+        {/* Quadrado Preto 4 */}
+        <Box
+          w="100px"
+          h="100px"
+          bg="black"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text color="white">Quadrado 4</Text>
+        </Box>
+      </Stack>
       </Box>
+      <Card
+  direction={{ base: 'column', sm: 'row' }}
+  overflow='hidden'
+  variant='outline'
+>
+  {/* <Image
+    objectFit='cover'
+    maxW={{ base: '100%', sm: '200px' }}
+    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+    alt='Caffe Latte'
+  /> */}
+
+  <Stack>
+    <CardBody>
+      <Heading size='md'>The perfect latte</Heading>
+
+      <Text py='2'>
+        Caffè latte is a coffee beverage of Italian origin made with espresso
+        and steamed milk.
+      </Text>
+    </CardBody>
+
+    <CardFooter>
+      <Button variant='solid' colorScheme='blue'>
+        Buy Latte
+      </Button>
+    </CardFooter>
+  </Stack>
+</Card>
     </>
   )
 }

@@ -3,10 +3,11 @@ import {
   Flex,
   Text,
   Stack,
-  Card, 
+  Card,
   Heading,
-  CardHeader, 
-  CardBody, 
+  CardHeader,
+  CardBody,
+  Image,
   CardFooter,
   Button
 } from "@chakra-ui/react";
@@ -21,87 +22,88 @@ export default function App() {
 
   return (
     <>
-    <HeaderPrincipal />
-    <Box bg="#adf6db" height="100vh" >
-    <Stack spacing={4} align="center" justify="center" height="100vh">
-        {/* Quadrado Preto 1 */}
-        <Box
-          w="100px"
-          h="100px"
-          bg="black"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="white">Quadrado 1</Text>
-        </Box>
+      <HeaderPrincipal />
+      <Box bg="#adf6db" height="100vh" >
+        <Stack spacing={14} align="center" justify="center" height="100vh">
+          <Card
+            direction={{ base: 'column', sm: 'row' }}
+            overflow='hidden'
+            variant='outline'
+            cursor="pointer"
+          >
 
-        {/* Quadrado Preto 2 */}
-        <Box
-          w="100px"
-          h="100px"
-          bg="black"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="white">Quadrado 2</Text>
-        </Box>
+            <Link href="/cuidados/comportamento">
+              <Image
+                objectFit='cover'
+                maxW={{ base: '100%', sm: '200px' }}
+                src="/images/duvidas.png" />
+            </Link>
 
-        {/* Quadrado Preto 3 */}
-        <Box
-          w="100px"
-          h="100px"
-          bg="black"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="white">Quadrado 3</Text>
-        </Box>
+            <Stack>
+              <CardBody bg="transparent">
 
-        {/* Quadrado Preto 4 */}
-        <Box
-          w="100px"
-          h="100px"
-          bg="black"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="white">Quadrado 4</Text>
-        </Box>
-      </Stack>
+                <Text py='2' >
+                Acesse informações e sugestões confiáveis de cuidados para seus
+                filhos de acordo com a idade
+                </Text>
+              </CardBody>
+
+
+            </Stack>
+          </Card>
+
+          <Card
+            direction={{ base: 'column', sm: 'row' }}
+            overflow='hidden'
+            variant='outline'
+
+          >
+            <Image
+              objectFit='cover'
+              maxW={{ base: '100%', sm: '200px' }}
+              src="/images/confiante.png" />
+
+            <Stack>
+              <CardBody bg="transparent">
+
+                <Text py='2'>
+                Entre em nossa comunidade de pais e nos ajude compartilhando suas
+                experiências com seus filhos
+                </Text>
+              </CardBody>
+
+
+            </Stack>
+          </Card>
+
+          <Card
+            direction={{ base: 'column', sm: 'row' }}
+            overflow='hidden'
+            variant='outline'
+
+          >
+            <Image
+              objectFit='cover'
+              maxW={{ base: '100%', sm: '200px' }}
+              src="/images/heal.png"
+            />
+
+            <Stack>
+              <CardBody bg="transparent">
+                <Heading size='md' fontWeight="bold">Dúvidas?</Heading>
+
+                <Text py='2'>
+                Entre em contato com nossa
+                equipe de suporte para ajudar com suas dúvidas.
+                </Text>
+              </CardBody>
+
+
+            </Stack>
+          </Card>
+
+        </Stack>
       </Box>
-      <Card
-  direction={{ base: 'column', sm: 'row' }}
-  overflow='hidden'
-  variant='outline'
->
-  {/* <Image
-    objectFit='cover'
-    maxW={{ base: '100%', sm: '200px' }}
-    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
-    alt='Caffe Latte'
-  /> */}
-
-  <Stack>
-    <CardBody>
-      <Heading size='md'>The perfect latte</Heading>
-
-      <Text py='2'>
-        Caffè latte is a coffee beverage of Italian origin made with espresso
-        and steamed milk.
-      </Text>
-    </CardBody>
-
-    <CardFooter>
-      <Button variant='solid' colorScheme='blue'>
-        Buy Latte
-      </Button>
-    </CardFooter>
-  </Stack>
-</Card>
     </>
   )
 }

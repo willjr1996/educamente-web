@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/cadastro": [
+    "/recuperarSenha2": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/cadastro.js"
+      "static/chunks/pages/recuperarSenha2.js"
     ]
   },
   "ampFirstPages": []

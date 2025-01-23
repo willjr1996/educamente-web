@@ -90,8 +90,8 @@ export default function Login() {
             </Button>
           </Flex>
         </Flex>
-        <Flex justify="flex-end" w="100%" mt="6" px="630">
-          <Link href="">
+        <Flex justify="flex-end" w="100%" mt="6" px="630" cursor="pointer">
+          <Link href="/recuperarSenha">
             <Text>Esqueceu a senha?</Text>
           </Link>
         </Flex>

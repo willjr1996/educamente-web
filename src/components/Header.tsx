@@ -13,18 +13,24 @@ import Link from "next/link";
 export function Header() {
   return (
     <Box bg="mintcream" p={4} boxShadow="sm">
-      <Flex align="center" justify="space-between">
+      <Flex 
+        align="center"
+        justify="space-between"
+        flexDirection={{ base: "column", md: "row" }}
+        gap={4}
+      >
+
         <Box
-          w="50px"
-          h="50px"
-          border="2px solid lightblue"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          borderRadius="md"
+           w={{ base: "60px", md: "80px" }}
+           h={{ base: "60px", md: "80px" }}
+           border="2px solid lightblue"
+           display="flex"
+           alignItems="center"
+           justifyContent="center"
+           borderRadius="md"
         >
           <Link href={"/"} >
-          <Image src="/images/logo.png" />
+            <Image src="/images/logo.png" />
           </Link>
         </Box>
 
@@ -39,7 +45,7 @@ export function Header() {
           <Avatar size="sm" bg="green.700" color="white" />
         </Flex>
       </Flex>
-      <Divider bg="grey"/>
+      <Divider bg="grey" />
     </Box>
   );
 }

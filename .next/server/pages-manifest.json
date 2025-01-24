@@ -1,6 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/recuperarSenha2": "pages/recuperarSenha2.js"
+  "/_error": "pages/_error.js",
+  "/cuidados/alimentacao": "pages/cuidados/alimentacao.js"
 }

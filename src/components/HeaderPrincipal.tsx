@@ -30,20 +30,22 @@ export default function HeaderPrincipal() {
             <Image src="/images/logo.png" objectFit="contain" />
           </Box>
 
-          <Flex
-            align="center"
-            gap={4}
-            direction={{ base: "column", sm: "row" }}
-            mt={{ base: 4, sm: 0 }}
-          >
+          <Flex>
             <Link href="/cadastro">
               <Text fontSize={{ base: "xs", sm: "sm" }} color="green.700" cursor="pointer">
                 Cadastre-se
               </Text>
             </Link>
+          </Flex>
 
+          <Flex
+            align="center"
+            gap={4}
+            direction={{ base: "column", sm: "column" }}
+            mt={{ base: 4, sm: 0 }}
+          >
             <Avatar size={{ base: "sm", md: "md" }} bg="green.700" color="white" />
-
+            
             <Link href="/login">
               <Text fontSize={{ base: "xs", sm: "sm" }} color="green.700" cursor="pointer">
                 Entrar

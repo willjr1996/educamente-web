@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/recuperarSenha2": [
+    "/cuidados/alimentacao": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/recuperarSenha2.js"
+      "static/chunks/pages/cuidados/alimentacao.js"
     ]
   },
   "ampFirstPages": []

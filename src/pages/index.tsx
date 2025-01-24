@@ -51,7 +51,7 @@ export default function App() {
 
             <Stack>
               <CardBody>
-                <Text py="0" fontSize={{ base: "md", sm: "lg" }}>
+                <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Acesse informações e sugestões confiáveis de cuidados para seus
                   filhos de acordo com a idade
                 </Text>
@@ -65,11 +65,14 @@ export default function App() {
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
+            cursor="pointer"
             bg="transparent"
             width={{ base: "90%", sm: "550px", md: "600px" }}
             height="auto"
             maxW="100%"
           >
+
+            <Link href="/comunidade">
             <Image
               objectFit="cover"
               maxW="100%" 
@@ -77,6 +80,7 @@ export default function App() {
               width="100%"  
               src="/images/confiante.png"
             />
+            </Link>
 
             <Stack>
               <CardBody bg="transparent">
@@ -112,8 +116,7 @@ export default function App() {
                 <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
                   Dúvidas?
                 </Heading>
-
-                <Text py="2" fontSize={{ base: "md", sm: "lg" }}>
+                <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Entre em contato com nossa equipe de suporte para ajudar com suas dúvidas.
                 </Text>
               </CardBody>

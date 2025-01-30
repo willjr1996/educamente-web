@@ -1,92 +1,61 @@
-import { Box, Text, VStack, Image } from '@chakra-ui/react'
-import Link from 'next/link'
-import { Menu } from '~components/Menu'
+import { Box, VStack, Image } from "@chakra-ui/react";
+import { Menu } from "~components/Menu";
+import Link from "next/link";
+import CardTexto from "~components/CardCuidados";
+import { Header } from "~components/Header";
+import { BtnVoltar } from "~components/ReturnBtn";
 
-export default function EducacaoInfantil() {
+export default function EducacaoInfantilA() {
   return (
     <>
-      <Link href={'/'}>
-        <Image
-          src={'/images/logo.png'}
-          alt="logo"
-          width={'88px'}
-          margin="10px"
-        />
-      </Link>
+      <Header/>
       <Menu />
+
       <Box
         bg="#b3f0db"
-        w="100vw"
-        h="100vh"
+        w="100%"
+        minH="100vh"
         display="flex"
-        overflow="hidden"
-        justifyContent="center"
+        flexDirection="column"
         alignItems="center"
         position="relative"
+        overflow="hidden"
       >
-        <Box position="absolute" top="20px" left="20px">
-          <Image
-            src="/images/duvida.png/"
-            w="132px"
-            h="132px"
-            borderRadius="50%"
-          />
+
+        <BtnVoltar
+         top='3%'
+        />
+
+
+        <Box
+          position="absolute"
+          bottom="20px"
+          left="50%"
+          transform="translateX(-50%)"
+        >
+          <Image src="/images/alimentacao.png" 
+          w="631px" 
+          h="224px" />
         </Box>
 
-        <Box position="absolute" bottom="20px" right="20px">
-          <Image
-            src="/images/pulaPula.png/"
-            w="170px"
-            h="161px"
-            borderRadius="50%"
-          />
-        </Box>
+        <VStack spacing={4} mt={8}>
+          <CardTexto>
+            A alimentação saudável para crianças é fundamental para o
+            desenvolvimento físico e mental, garantindo energia e nutrientes
+            essenciais para o crescimento.
+          </CardTexto>
 
-        <VStack spacing={6}>
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
-              A alimentação saudável para crianças é fundamental para o
-              desenvolvimento físico e mental, garantindo energia e nutrientes
-              essenciais para o crescimento.
-            </Text>
-          </Box>
+          <CardTexto>
+            Oferecer alimentos naturais e equilibrados, como frutas, vegetais
+            e proteínas, ajuda a fortalecer o sistema imunológico e promove a
+            saúde.
+          </CardTexto>
 
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
-              Oferecer alimentos naturais e equilibrados, como frutas, vegetais
-              e proteínas, ajuda a fortalecer o sistema imunológico e promove a
-              saúde.
-            </Text>
-          </Box>
-
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
-              Uma alimentação saudável ensina hábitos positivos, prevenindo
-              doenças e melhorando a concentração, essencial para o desempenho
-              escolar e o bem-estar geral.
-            </Text>
-          </Box>
+          <CardTexto>
+            Uma alimentação saudável ensina hábitos positivos, prevenindo
+            doenças e melhorando a concentração, essencial para o desempenho
+            escolar e o bem-estar geral.
+          </CardTexto>
         </VStack>
       </Box>
     </>

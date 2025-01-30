@@ -1,90 +1,72 @@
 import { Box, Text, VStack, Image } from '@chakra-ui/react'
 import { Menu } from '~components/Menu'
 import Link from 'next/link'
-export default function EducacaoInfantil() {
+import CardTexto from "~components/CardCuidados";
+import { Header } from '~components/Header';
+import { BtnVoltar } from '~components/ReturnBtn';
+
+export default function EducacaoInfantilS() {
   return (
     <>
-      <Link href={'/'}>
-        <Image
-          src={'/images/logo.png'}
-          alt="logo"
-          width={'88px'}
-          margin="10px"
-        />
-      </Link>
+      <Header />
       <Menu />
       <Box
         bg="#b3f0db"
-        w="100vw"
-        h="100vh"
+        w="100%"
+        minH="100vh"
         display="flex"
-        justifyContent="center"
+        flexDirection="column"
         alignItems="center"
         position="relative"
+        overflow="hidden"
       >
-        <Box position="absolute" top="20px" left="20px">
+
+        <BtnVoltar
+        top='3%'
+        />
+
+        <Box position="absolute" top="20px" right="20px">
           <Image
             src="/images/duvida.png/"
-            w="132px"
-            h="132px"
+            w="200px"
+            h="200px"
             borderRadius="50%"
           />
         </Box>
 
-        <Box position="absolute" bottom="20px" right="20px">
+        <Box position="absolute" bottom="20px" left="20px">
           <Image
-            src="/images/pulaPula.png/"
-            w="170px"
-            h="161px"
+            src="/images/obrigado.png/"
+            w="200px"
+            h="200px"
             borderRadius="50%"
           />
         </Box>
 
-        <VStack spacing={6}>
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
+        <VStack spacing={6} mt={8}>
+          <CardTexto>
+            <Text>
               A saúde mental infantil é essencial para o bem-estar das crianças,
               e promover um ambiente seguro e acolhedor ajuda a prevenir
               transtornos emocionais.
             </Text>
-          </Box>
+          </CardTexto>
 
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
+          <CardTexto>
+            <Text>
               Conversar abertamente sobre sentimentos e emoções é fundamental
               para o desenvolvimento emocional, permitindo que as crianças
               aprendam a lidar com desafios psicológicos.
             </Text>
-          </Box>
+          </CardTexto>
 
-          <Box
-            bg="#006633"
-            borderRadius="10px"
-            w="350px"
-            p={4}
-            boxShadow="lg"
-            color="white"
-          >
-            <Text fontSize="md">
+          <CardTexto>
+            <Text >
               Atividades que incentivem a criatividade e o jogo livre auxiliam
               no equilíbrio emocional, promovendo a autoestima e a resiliência
               desde os primeiros anos.
             </Text>
-          </Box>
+          </CardTexto>
         </VStack>
       </Box>
     </>

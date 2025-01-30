@@ -46,22 +46,28 @@ export default function DicasDiarias() {
                     </Text>
 
                     <Flex justify="space-between" align="center" w="100%" mt="6">
-                        <Button
-                            w={140}
-                            colorScheme="red"
-                            size="lg"
-                            leftIcon={<ArrowBackIcon />}
-                        >
-                            Voltar
-                        </Button>
-                        <Button
-                            w={140}
-                            colorScheme="green"
-                            size="lg"
-                            rightIcon={<CheckIcon />}
-                        >
-                            Confirmar
-                        </Button>
+                        <Link href="/" passHref>
+                            <Button
+                                w={140}
+                                colorScheme="red"
+                                size="lg"
+                                leftIcon={<ArrowBackIcon />}
+                            >
+                                Voltar
+                            </Button>
+                        </Link>
+
+                        {/*adicionar funcionalidade */}
+                        <Link href="/" passHref>
+                            <Button
+                                w={140}
+                                colorScheme="green"
+                                size="lg"
+                                rightIcon={<CheckIcon />}
+                            >
+                                Confirmar
+                            </Button>
+                        </Link>
                     </Flex>
                 </Flex>
             </Flex>

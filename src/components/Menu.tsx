@@ -1,9 +1,9 @@
-import { Box, Button, Flex, Heading, Image } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Box, Button, Flex, Heading } from '@chakra-ui/react';
+import Link from 'next/link';
 
 export function Menu() {
   return (
-    <Box bg="#b3f0db" p={4} borderRadius="md">
+    <Box bg="#b3f0db" w="100%">
       <Heading as="h2" size="md" textAlign="center" mb={4}>
         TIPOS DE CUIDADOS
       </Heading>
@@ -44,5 +44,5 @@ export function Menu() {
         </Link>
       </Flex>
     </Box>
-  )
+  );
 }

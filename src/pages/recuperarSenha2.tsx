@@ -12,9 +12,17 @@ import Link from 'next/link';
 import { Input } from '~components/Input';
 import { ArrowBackIcon, CheckIcon } from '@chakra-ui/icons';
 import Modal from '~components/Modal';
+import { useRouter } from 'next/router';
 
 export default function Cadastro() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+      const router = useRouter();
+      const homeRoute = "/recuperarSenha";
+    
+      const handleClick = () => {
+        router.push(homeRoute); 
+    }
 
     return (
         <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
@@ -86,6 +94,7 @@ export default function Cadastro() {
                             w={140}
                             colorScheme="red"
                             size="lg"
+                            onClick={handleClick}
                             leftIcon={<ArrowBackIcon />}
                         >
                             Voltar

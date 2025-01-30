@@ -16,9 +16,9 @@ export default function App() {
   return (
     <>
       <HeaderPrincipal />
-      <Box 
-        bg="#adf6db" 
-        minH="100vh" 
+      <Box
+        bg="#adf6db"
+        minH="100vh"
         paddingTop={{ base: "100px", md: "10px" }}
         overflow="hidden"
         display="flex"
@@ -26,14 +26,13 @@ export default function App() {
         justifyContent="center"
         alignItems="center"
       >
-        <Stack spacing={5} align="center" justify="center" px={{ base: 4, md: 0 }} width="100%" maxW="100%">
+        <Stack spacing={8} align="center" justify="center" px={{ base: 4, md: 0 }} width="100%" maxW="100%">
           <Card
             direction={{ base: 'column', sm: 'row' }}
             overflow="hidden"
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
-            cursor="pointer"
             bg="transparent"
             width={{ base: "90%", sm: "550px", md: "600px" }}
             height="auto"
@@ -42,15 +41,19 @@ export default function App() {
             <Link href="/cuidados/comportamento">
               <Image
                 objectFit="cover"
-                maxW="100%" 
-                height={{ base: "150px", sm: "200px" }}  
-                width="100%"  
+                maxW="100%"
+                height={{ base: "150px", sm: "200px" }}
+                width="100%"
+                cursor="pointer"
                 src="/images/duvidas.png"
               />
             </Link>
 
             <Stack>
               <CardBody>
+                <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
+                  TITULO 01
+                </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Acesse informações e sugestões confiáveis de cuidados para seus
                   filhos de acordo com a idade
@@ -65,25 +68,28 @@ export default function App() {
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
-            cursor="pointer"
             bg="transparent"
-            width={{ base: "90%", sm: "550px", md: "600px" }}
+            width={{ base: "90%", sm: "600px", md: "600px" }}
             height="auto"
             maxW="100%"
           >
 
             <Link href="/comunidade">
-            <Image
-              objectFit="cover"
-              maxW="100%" 
-              height={{ base: "150px", sm: "200px" }}  
-              width="100%"  
-              src="/images/confiante.png"
-            />
+              <Image
+                objectFit="cover"
+                maxW="100%"
+                height={{ base: "150px", sm: "200px" }}
+                width="100%"
+                cursor="pointer"
+                src="/images/confiante.png"
+              />
             </Link>
 
             <Stack>
               <CardBody bg="transparent">
+                <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
+                  TITULO 02
+                </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Entre em nossa comunidade de pais e nos ajude compartilhando suas
                   experiências com seus filhos
@@ -103,13 +109,16 @@ export default function App() {
             height="auto"
             maxW="100%"
           >
-            <Image
-              objectFit="cover"
-              maxW="100%" 
-              height={{ base: "150px", sm: "200px" }}  
-              width="100%"  
-              src="/images/heal.png"
-            />
+            <Link href="/notificacoes" passHref>
+              <Image
+                objectFit="cover"
+                maxW="100%"
+                height={{ base: "150px", sm: "200px" }}
+                width="100%"
+                cursor="pointer"
+                src="/images/heal.png"
+              />
+            </Link>
 
             <Stack>
               <CardBody bg="transparent">

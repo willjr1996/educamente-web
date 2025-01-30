@@ -9,9 +9,15 @@ import {
   FormLabel,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import router from 'next/router'
 import React from 'react'
 
 export default function Login() {
+
+  const handleConfirm = () => {
+    router.push('/')
+  }
+
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
@@ -66,7 +72,7 @@ export default function Login() {
               bg="rgba(5, 166, 89, 0.7)"
               focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
-            <FormLabel htmlFor="email">E-mail: </FormLabel>
+            <FormLabel htmlFor="password">Senha: </FormLabel>
             <Input
               name="password"
               type="password"
@@ -85,7 +91,7 @@ export default function Login() {
                 </Text>
               </Link>
             </Flex>
-            <Button w={140} type="submit" colorScheme="green" size="lg">
+            <Button onClick={handleConfirm} w={140} type="submit" colorScheme="green" size="lg">
               Entrar
             </Button>
           </Flex>

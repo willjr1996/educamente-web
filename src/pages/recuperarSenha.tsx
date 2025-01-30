@@ -18,8 +18,12 @@ export default function Cadastro() {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const handleConfirm = () => {
-        router.push('/recuperarSenha2'); //rotas de navegabilidade
+        router.push('/recuperarSenha2');
       };
+
+    const handleReturn = () => {
+        router.push('/login')
+    }
 
     return (
         <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
@@ -78,6 +82,7 @@ export default function Cadastro() {
                     <Flex justify="space-between" align="center" w="100%" mt="6">
                         <Button
                             w={140}
+                            onClick={handleReturn}
                             colorScheme="red"
                             size="lg"
                             leftIcon={<ArrowBackIcon />}

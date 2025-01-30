@@ -6,13 +6,14 @@ import {
     ModalContent,
     ModalHeader,
     ModalBody,
-    ModalCloseButton,
     ModalFooter,
     Text,
     Image,
     Flex,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { ArrowBackIcon, CheckIcon } from '@chakra-ui/icons';
+
 
 interface CustomModalProps {
     isOpen: boolean;
@@ -26,7 +27,6 @@ export default function CustomModal({ isOpen, onClose, message, title }: CustomM
     const handleConfirm = () => {
         router.push("/login");
     };
-
 
     return (
         <ChakraModal isOpen={isOpen} onClose={onClose} isCentered>
@@ -57,7 +57,6 @@ export default function CustomModal({ isOpen, onClose, message, title }: CustomM
                     {title.toUpperCase()}
                 </ModalHeader>
 
-
                 <ModalBody textAlign="center" p="10" bg="white" borderRadius="8px" mx="20" mt="15" minHeight="200px">
                     <Text fontSize="xl" color="darkslategray" fontWeight="500">
                         {message}
@@ -70,7 +69,7 @@ export default function CustomModal({ isOpen, onClose, message, title }: CustomM
                         bg="tomato"
                         color="white"
                         _hover={{ bg: "red.600" }}
-                        leftIcon={<Box as="span" className="material-icons" />}
+                        leftIcon={<ArrowBackIcon />}
                         mr="4"
                     >
                         Voltar
@@ -80,7 +79,7 @@ export default function CustomModal({ isOpen, onClose, message, title }: CustomM
                         bg="green.400"
                         color="white"
                         _hover={{ bg: "green.600" }}
-                        leftIcon={<Box as="span" className="material-icons" />}
+                        leftIcon={<CheckIcon />}
                     >
                         Confirmar
                     </Button>

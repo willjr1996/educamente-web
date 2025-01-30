@@ -91,9 +91,12 @@ export default function Login() {
                 </Text>
               </Link>
             </Flex>
-            <Button onClick={handleConfirm} w={140} type="submit" colorScheme="green" size="lg">
+
+            <Link href="/">
+            <Button  w={140} type="submit" colorScheme="green" size="lg" /*onClick={handleConfirm}*/>
               Entrar
             </Button>
+            </Link>
           </Flex>
         </Flex>
         <Flex justify="flex-end" w="100%" mt="6" px="630" cursor="pointer">

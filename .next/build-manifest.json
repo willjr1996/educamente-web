@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/comunidade": [
+    "/cuidados/comportamento": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/comunidade.js"
+      "static/chunks/pages/cuidados/comportamento.js"
     ],
     "/notificacoes": [
       "static/chunks/webpack.js",

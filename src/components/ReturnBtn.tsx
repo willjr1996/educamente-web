@@ -2,9 +2,8 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Button, Tooltip, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router"; 
 
-// Definindo a interface para as propriedades do BtnVoltar
 interface BtnVoltarProps {
-  top: string;  // Propriedade dinâmica para a posição vertical
+  top: string;  
 }
 
 export function BtnVoltar({ top }: BtnVoltarProps) {
@@ -20,8 +19,9 @@ export function BtnVoltar({ top }: BtnVoltarProps) {
       <Tooltip label="Voltar" fontSize="md" placement="top">
         <Button
           variant="outline"
-          colorScheme="green"
-          size="sm"
+          colorScheme="black"
+          bg="#68d391"
+          size="lg"
           borderRadius="full"
           padding={2}
           leftIcon={<ArrowBackIcon />}

@@ -52,7 +52,7 @@ export default function App() {
             <Stack>
               <CardBody>
                 <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
-                  TITULO 01
+                  SUGESTÕES
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Acesse informações e sugestões confiáveis de cuidados para seus
@@ -88,7 +88,7 @@ export default function App() {
             <Stack>
               <CardBody bg="transparent">
                 <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
-                  TITULO 02
+                  COMUNIDADE
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Entre em nossa comunidade de pais e nos ajude compartilhando suas
@@ -109,7 +109,7 @@ export default function App() {
             height="auto"
             maxW="100%"
           >
-            <Link href="/notificacoes" passHref>
+            <Link href="" passHref>
               <Image
                 objectFit="cover"
                 maxW="100%"
@@ -123,7 +123,7 @@ export default function App() {
             <Stack>
               <CardBody bg="transparent">
                 <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
-                  Dúvidas?
+                  DÚVIDAS?
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
                   Entre em contato com nossa equipe de suporte para ajudar com suas dúvidas.

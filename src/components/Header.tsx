@@ -39,7 +39,7 @@ export function Header() {
             <Flex flexDir="column" align="center" cursor="pointer">
               <Icon as={BellIcon} boxSize={6} color="green.700" />
               <Text fontSize="sm" color="green.700" ml={1}>
-                Notificações
+                Ativar Notificações
               </Text>
             </Flex>
           </Link>

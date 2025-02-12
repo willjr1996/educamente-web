@@ -14,22 +14,81 @@ import InputMask from 'react-input-mask'
 import { Title } from '~components/Title'
 import Modal from '~components/Modal'
 import { ArrowBackIcon, CheckIcon } from '@chakra-ui/icons'
-
+import { useState } from 'react'
+import axios from 'axios'
+import { notifyError, notifySuccess } from '~utils/utils';
+import Router from 'next/router';
 
 export default function Cadastro() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const [nome, setNome] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [dataNascimento, setDataNascimento] = useState('');
+  const [foneCelular, setFoneCelular] = useState('');
+
+  const handleOpen = () => {
+    if (password !== confirmPassword) {
+      notifyError('As senhas não coincidem!');
+      return;
+    }
+    onOpen();
+  };
+
+  function salvar() {
+    let usuarioRequest = {
+      nome: nome,
+      cpf: cpf,
+      dataNascimento: dataNascimento,
+      foneCelular: foneCelular,
+      email: username,
+      password: password
+    }
+    axios
+      .post("http://localhost:8080/api/usuario", usuarioRequest)
+      .then((response) => {
+        notifySuccess("Usuário cadastrado com sucesso.");
+        onClose();
+        Router.push('/login');
+      })
+      .catch((error) => {
+        console.log("Erro completo:", error);
+
+        if (error.response) {
+          console.log("Resposta do servidor:", error.response);
+
+          if (error.response.data?.errors) {
+            error.response.data.errors.forEach((err: { defaultMessage: any }) => notifyError(err.defaultMessage));
+            onClose();
+          } else {
+            notifyError(error.response.data?.message || "Erro desconhecido no servidor.");
+            onClose();
+          }
+        } else if (error.request) {
+          notifyError("Erro na comunicação com o servidor. Verifique sua conexão.");
+          onClose();
+        } else {
+          notifyError("Ocorreu um erro inesperado.");
+          onClose();
+        }
+      });
+
+  }
+
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
-          <Image
-            src={'/images/logo.png'}
-            alt="logo"
-            width={'88px'}
-            margin="10px"
-            position="absolute"
-          />
+        <Image
+          src={'/images/logo.png'}
+          alt="logo"
+          width={'88px'}
+          margin="10px"
+          position="absolute"
+        />
         <Text
           fontSize="90"
           color="#146B49"
@@ -57,6 +116,8 @@ export default function Cadastro() {
               name="nome"
               label="Nome: "
               type="text"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               placeholder="Escreva seu nome completo"
               borderColor="black"
               borderWidth="1px"
@@ -69,6 +130,8 @@ export default function Cadastro() {
               id="email"
               name="email"
               type="email"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               placeholder="Escreva seu email aqui"
               borderColor="black"
               borderWidth="1px"
@@ -76,7 +139,11 @@ export default function Cadastro() {
               focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
 
-            <InputMask mask="999.999.999-99">
+            <InputMask
+              mask="999.999.999-99"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+            >
               {(inputProps: any) => (
                 <Input
                   name="cpf"
@@ -93,7 +160,11 @@ export default function Cadastro() {
             </InputMask>
 
             <Flex flexDir="row" alignItems="center" gap={4}>
-              <InputMask mask="99/99/9999">
+              <InputMask
+                mask="99/99/9999"
+                value={dataNascimento}
+                onChange={(e) => setDataNascimento(e.target.value)}
+              >
                 {(inputProps: any) => (
                   <Input
                     name="nascimento"
@@ -109,7 +180,11 @@ export default function Cadastro() {
                 )}
               </InputMask>
 
-              <InputMask mask="(99) 99999-9999">
+              <InputMask
+                mask="(99) 99999-9999"
+                value={foneCelular}
+                onChange={(e) => setFoneCelular(e.target.value)}
+              >
                 {(inputProps: any) => (
                   <Input
                     name="telefone"
@@ -132,6 +207,8 @@ export default function Cadastro() {
               name="senha"
               type="password"
               placeholder="Digite sua senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               borderColor="black"
               borderWidth="1px"
               bg="rgba(5, 166, 89, 0.7)"
@@ -144,6 +221,8 @@ export default function Cadastro() {
               name="confirmaSenha"
               type="password"
               placeholder="Confirme sua senha"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               borderColor="black"
               borderWidth="1px"
               bg="rgba(5, 166, 89, 0.7)"
@@ -164,7 +243,9 @@ export default function Cadastro() {
               </Button>
             </Link>
 
-            <Button w={140} onClick={onOpen}  leftIcon={<CheckIcon />} colorScheme="green" size="lg">
+            <Button w={140} onClick={handleOpen} leftIcon={<CheckIcon />} colorScheme="green" size="lg"
+              disabled={!nome || !username || !password || !confirmPassword || !cpf || !dataNascimento || !foneCelular}
+            >
               Concluir
             </Button>
 
@@ -173,10 +254,12 @@ export default function Cadastro() {
               onClose={onClose}
               message="Tem certeza que deseja finalizar o cadastro agora?"
               title="CONFIRMAÇÃO"
+              onClick={salvar}
             />
+
           </Flex>
         </Flex>
       </Flex>
     </Box>
-  )
+  );
 }

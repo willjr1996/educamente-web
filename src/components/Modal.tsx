@@ -14,18 +14,18 @@ import {
 import { useRouter } from "next/router";
 import { ArrowBackIcon, CheckIcon } from '@chakra-ui/icons';
 
-
 interface CustomModalProps {
     isOpen: boolean;
     onClose: () => void;
     message: string;
     title: string;
+    onClick: () => void;
 }
 
-export default function CustomModal({ isOpen, onClose, message, title }: CustomModalProps) {
+export default function CustomModal({ isOpen, onClose, message, title, onClick }: CustomModalProps) {
     const router = useRouter();
     const handleConfirm = () => {
-        router.push("/login");
+        onClick();
     };
 
     return (

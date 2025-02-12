@@ -1,69 +1,146 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Stack,
-  Text,
-  Image,
-  Input,
-  FormLabel,
-} from '@chakra-ui/react'
+// import {
+//   Box,
+//   Button,
+//   Flex,
+//   Stack,
+//   Text,
+//   Image,
+//   Input,
+//   FormLabel,
+// } from '@chakra-ui/react'
+// import Link from 'next/link'
+// import router from 'next/router'
+// import React from 'react'
+
+// export default function Login() {
+
+//   const handleConfirm = () => {
+//     router.push('/')
+//   }
+
+//   return (
+//     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
+//       <Flex flexDir="row" justify="space-between" align="center">
+//         <Link href={'/'}>
+//           <Image
+//             src={'/images/logo.png'}
+//             alt="logo"
+//             width={'88px'}
+//             margin="10px"
+//           />
+//         </Link>
+//         <Text fontSize="90" color="#146B49" w="100%" align="center">
+//           EducaMente
+//         </Text>
+//       </Flex>
+//       <Text
+//         fontSize="90"
+//         border="auto"
+//         color="#146B49"
+//         w="100%"
+//         align="center"
+//         mt="2"
+//       >
+//         LOGIN
+//       </Text>
+//       <Flex
+//         flexDir="column"
+//         align="center"
+//         justify="center"
+//         h="100vh"
+//         overflow="hidden"
+//         border="auto"
+//         mt="-220"
+//       >
+//         <Flex
+//           as="form"
+//           w="100%"
+//           maxWidth={660}
+//           bg="white"
+//           p="8"
+//           borderRadius={8}
+//           flexDir="column"
+//         >
+//           <Stack spacing="4">
+//             <FormLabel htmlFor="nome">Nome: </FormLabel>
+//             <Input
+//               name="email"
+//               type="email"
+//               placeholder="Escreva seu email aqui"
+//               borderColor="black"
+//               borderWidth="1px"
+//               bg="rgba(5, 166, 89, 0.7)"
+//               focusBorderColor="rgba(5, 166, 89, 0.7)"
+//             />
+//             <FormLabel htmlFor="password">Senha: </FormLabel>
+//             <Input
+//               name="password"
+//               type="password"
+//               placeholder="Escreva aqui sua senha de acesso"
+//               borderColor="black"
+//               borderWidth="1px"
+//               bg="rgba(5, 166, 89, 0.7)"
+//               focusBorderColor="rgba(5, 166, 89, 0.7)"
+//             />
+//           </Stack>
+//           <Flex justify="space-between" align="center" w="100%" mt="6">
+//             <Flex w="100%" justify="center">
+//               <Link href="cadastro">
+//                 <Text fontSize="sm" cursor="pointer">
+//                   Não tem cadastro? Faça agora!
+//                 </Text>
+//               </Link>
+//             </Flex>
+
+//             <Link href="/">
+//             <Button  w={140} type="submit" colorScheme="green" size="lg" /*onClick={handleConfirm}*/>
+//               Entrar
+//             </Button>
+//             </Link>
+//           </Flex>
+//         </Flex>
+//         <Flex justify="flex-end" w="100%" mt="6" px="630" cursor="pointer">
+//           <Link href="/recuperarSenha">
+//             <Text>Esqueceu a senha?</Text>
+//           </Link>
+//         </Flex>
+//       </Flex>
+//     </Box>
+//   )
+// }
+import { Box, Button, Flex, Stack, Text, Image, Input, FormLabel } from '@chakra-ui/react'
 import Link from 'next/link'
-import router from 'next/router'
-import React from 'react'
+import React, { useState } from 'react'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Login() {
+  const { login } = useAuth()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  const handleConfirm = () => {
-    router.push('/')
+  const handleLogin = async (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    await login(username, password)
   }
 
   return (
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
         <Link href={'/'}>
-          <Image
-            src={'/images/logo.png'}
-            alt="logo"
-            width={'88px'}
-            margin="10px"
-          />
+          <Image src={'/images/logo.png'} alt="logo" width={'88px'} margin="10px" />
         </Link>
         <Text fontSize="90" color="#146B49" w="100%" align="center">
           EducaMente
         </Text>
       </Flex>
-      <Text
-        fontSize="90"
-        border="auto"
-        color="#146B49"
-        w="100%"
-        align="center"
-        mt="2"
-      >
+      <Text fontSize="90" border="auto" color="#146B49" w="100%" align="center" mt="2">
         LOGIN
       </Text>
-      <Flex
-        flexDir="column"
-        align="center"
-        justify="center"
-        h="100vh"
-        overflow="hidden"
-        border="auto"
-        mt="-220"
-      >
-        <Flex
-          as="form"
-          w="100%"
-          maxWidth={660}
-          bg="white"
-          p="8"
-          borderRadius={8}
-          flexDir="column"
-        >
+      <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" border="auto" mt="-220">
+        <Flex as="form" w="100%" maxWidth={660} bg="white" p="8" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
           <Stack spacing="4">
-            <FormLabel htmlFor="nome">Nome: </FormLabel>
-            <Input
+            <FormLabel>Email: </FormLabel>
+            <Input 
               name="email"
               type="email"
               placeholder="Escreva seu email aqui"
@@ -71,9 +148,11 @@ export default function Login() {
               borderWidth="1px"
               bg="rgba(5, 166, 89, 0.7)"
               focusBorderColor="rgba(5, 166, 89, 0.7)"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            <FormLabel htmlFor="password">Senha: </FormLabel>
-            <Input
+            <FormLabel>Senha: </FormLabel>
+            <Input 
               name="password"
               type="password"
               placeholder="Escreva aqui sua senha de acesso"
@@ -81,6 +160,8 @@ export default function Login() {
               borderWidth="1px"
               bg="rgba(5, 166, 89, 0.7)"
               focusBorderColor="rgba(5, 166, 89, 0.7)"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Stack>
           <Flex justify="space-between" align="center" w="100%" mt="6">
@@ -92,11 +173,9 @@ export default function Login() {
               </Link>
             </Flex>
 
-            <Link href="/">
-            <Button  w={140} type="submit" colorScheme="green" size="lg" /*onClick={handleConfirm}*/>
+            <Button w={140} type="submit" colorScheme="green" size="lg">
               Entrar
             </Button>
-            </Link>
           </Flex>
         </Flex>
         <Flex justify="flex-end" w="100%" mt="6" px="630" cursor="pointer">

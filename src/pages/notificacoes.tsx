@@ -21,12 +21,6 @@ return (
         </Head>
         <Box h="100vh" overflow="hidden" backgroundColor="#adf6db" fontFamily="Delius">
             <Flex flexDir="column" align="center" justify="center" h="100vh">
-                {/* Cabeçalho */}
-                <Flex w="100%" justify="space-between" align="center" bg="white" position="absolute" top={0} px={4} py={2}>
-                    
-                </Flex>
-
-                
                 <Text
                     fontSize={{ base: "40px", md: "70px" }} 
                     color="#146B49"

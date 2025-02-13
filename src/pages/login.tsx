@@ -25,14 +25,15 @@ export default function Login() {
         <Text fontSize="70" color="#146B49" textAlign="center" fontFamily="Delius">Bem vindo ao Educamente!</Text>
       </Flex>
 
-      <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt="-220">
-        <Flex as="form" w="100%" maxWidth={660} bg="white" p="8" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
+      <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt="-200" fontFamily="Delius">
+        <Flex as="form" w="30%" maxWidth={660} bg="white" p="6" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
           <Stack spacing="4">
-            <Text fontSize="50" color="#146B49" w="100%" textAlign="center" mt="2" fontFamily="Delius">
+            <Text fontSize="50" color="#146B49" w="100%" textAlign="center" mt="-5" fontFamily="Delius">
               Login
             </Text>
-            <FormLabel fontFamily="Delius"fontSize="30">Email: </FormLabel>
+            <FormLabel fontFamily="Delius"fontSize="30" mt="-5">Email: </FormLabel>
             <Input
+              mt="-5"
               name="email"
               type="email"
               placeholder="Digite seu email"
@@ -46,6 +47,7 @@ export default function Login() {
             />
             <FormLabel fontFamily="Delius" fontSize="30">Senha: </FormLabel>
             <Input
+              mt="-5"
               name="password"
               type="password"
               placeholder="Digite sua senha"
@@ -59,7 +61,7 @@ export default function Login() {
             />
           </Stack>
           <Flex justify="space-between" align="center" w="100%" mt="6" >
-            <Flex w="100%" justify="center">
+            <Flex w="100%" justify="left">
               <Link href="cadastro">
                 <Text fontSize="sm" cursor="pointer" fontFamily="Delius" _hover={{ color: "green" }}>Não tem cadastro? Faça agora!</Text>
               </Link>
@@ -68,7 +70,7 @@ export default function Login() {
             <Button w={140} type="submit" colorScheme="green" size="lg" fontFamily="Delius">Entrar</Button>
           </Flex>
         </Flex>
-        <Flex justify="flex-end" w="100%" mt="6" px="630" cursor="pointer">
+        <Flex justify="center" w="100%" mt="6" px="630" cursor="pointer">
           <Link href="/recuperarSenha">
             <Text fontFamily="Delius" _hover={{ color: "green" }}>Esqueceu a senha?</Text>
           </Link>

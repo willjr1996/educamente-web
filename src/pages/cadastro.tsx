@@ -18,6 +18,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { notifyError, notifySuccess } from '~utils/utils';
 import Router from 'next/router';
+import Head from 'next/head'
 
 export default function Cadastro() {
 
@@ -80,6 +81,10 @@ export default function Cadastro() {
   }
 
   return (
+    <>
+    <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
     <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
       <Flex flexDir="row" justify="space-between" align="center">
         <Image
@@ -90,17 +95,18 @@ export default function Cadastro() {
           position="absolute"
         />
         <Text
-          fontSize="90"
+          fontSize="60"
           color="#146B49"
           w="100%"
           align="center"
           margin="auto"
+          fontFamily="Delius"
         >
           CADASTRO
         </Text>
       </Flex>
       <Title name="Cadastro" />
-      <Flex flexDir="row" align="center" justify="center" m="auto">
+      <Flex flexDir="row" align="center" justify="center" m="auto" fontFamily="Delius">
         <Flex
           as="form"
           w="100%"
@@ -109,6 +115,7 @@ export default function Cadastro() {
           p="8"
           borderRadius={8}
           flexDir="column"
+          
         >
           <Stack spacing="2">
             <Input
@@ -118,10 +125,10 @@ export default function Cadastro() {
               type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              placeholder="Escreva seu nome completo"
-              borderColor="black"
-              borderWidth="1px"
-              bg="rgba(5, 166, 89, 0.7)"
+              placeholder="Digite seu nome completo"
+              borderColor="green"
+              borderWidth="3px"
+              bg="rgb(255, 255, 255)"
               focusBorderColor="rgba(5, 166, 89, 0.7)"
             />
 
@@ -261,5 +268,6 @@ export default function Cadastro() {
         </Flex>
       </Flex>
     </Box>
+    </>
   );
 }

@@ -5,36 +5,52 @@ import {
   Text,
   Avatar,
   Image,
-  Divider
+  Divider,
+  Button,
 } from "@chakra-ui/react";
 import { BellIcon } from "@chakra-ui/icons";
 import Link from "next/link";
+import Head from "next/head";
 
 export function Header() {
+  // Verifica se o token está presente no localStorage
+  const token = localStorage.getItem('token');
+  const username = localStorage.getItem('username'); // Supondo que o nome do usuário esteja no localStorage
+
+  // Função para fazer o logout (remover o token)
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username'); // Remove o nome do usuário também
+    window.location.href = '/'; // Redireciona para a página inicial ou login
+  };
+
   return (
-    <Box bg="mintcream" p={4} boxShadow="sm">
+    <>
+    <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
+    <Box bg="mintcream" p={4} boxShadow="sm" fontFamily="Delius">
       <Flex
         align="center"
         justify="space-between"
         flexDirection={{ base: "column", md: "row" }}
         gap={4}
       >
-
         <Box
           w={{ base: "60px", md: "80px" }}
           h={{ base: "60px", md: "80px" }}
-          border="2px solid lightblue"
           display="flex"
           alignItems="center"
           justifyContent="center"
           borderRadius="md"
+          mt="-20"
         >
           <Link href={"/"} >
-            <Image src="/images/logo.png" cursor="pointer" />
+            <Image src="/images/logo.png" cursor="pointer" mt="20" width="50px"/>
           </Link>
         </Box>
 
-        <Flex align="center" gap={6} >
+        <Flex align="center" gap={6}>
           <Link href="/notificacoes" passHref>
             <Flex flexDir="column" align="center" cursor="pointer">
               <Icon as={BellIcon} boxSize={6} color="green.700" />
@@ -44,9 +60,25 @@ export function Header() {
             </Flex>
           </Link>
 
-          <Avatar size="sm" bg="green.700" color="white" />
+          {!token ? (
+            <>
+              <Link href="/login">
+                <Text fontSize="sm" color="green.700" cursor="pointer">
+                  Entrar
+                </Text>
+              </Link>
+            </>
+          ) : (
+            
+              
+              <Button onClick={handleLogout} colorScheme="green" size="sm">
+                Sair
+              </Button>
+            
+          )}
         </Flex>
       </Flex>
-    </Box >
+    </Box>
+    </>
   );
 }

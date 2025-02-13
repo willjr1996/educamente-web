@@ -4,8 +4,9 @@ import { AddIcon, BellIcon } from '@chakra-ui/icons';
 import Footer from '~components/Footer';
 import { BtnVoltar } from '~components/ReturnBtn';
 import { Header } from '~components/Header';
+import { withAuth } from '~contexts/withAuth';
 
-export default function ComunidadePais() {
+function ComunidadePais() {
     return (
         <>
             <Header />
@@ -79,3 +80,4 @@ export default function ComunidadePais() {
         </>
     );
 }
+export default withAuth(ComunidadePais);

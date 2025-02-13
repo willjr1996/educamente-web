@@ -66,14 +66,14 @@ export default function Cadastro() {
             error.response.data.errors.forEach((err: { defaultMessage: any }) => notifyError(err.defaultMessage));
             onClose();
           } else {
-            notifyError(error.response.data?.message || "Erro desconhecido no servidor.");
+            notifyError(error.response.data?.message || "Erro desconhecido no servidor. Tente Novamente!");
             onClose();
           }
         } else if (error.request) {
-          notifyError("Erro na comunicação com o servidor. Verifique sua conexão.");
+          notifyError("Erro na comunicação com o servidor. Verifique sua conexão e tente novamente!");
           onClose();
         } else {
-          notifyError("Ocorreu um erro inesperado.");
+          notifyError("Ocorreu um erro inesperado. Tente novamente!");
           onClose();
         }
       });
@@ -82,192 +82,200 @@ export default function Cadastro() {
 
   return (
     <>
-    <Head>
+      <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
-    <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
-      <Flex flexDir="row" justify="space-between" align="center">
-        <Image
-          src={'/images/logo.png'}
-          alt="logo"
-          width={'88px'}
-          margin="10px"
-          position="absolute"
-        />
-        <Text
-          fontSize="60"
-          color="#146B49"
-          w="100%"
-          align="center"
-          margin="auto"
-          fontFamily="Delius"
-        >
-          CADASTRO
-        </Text>
-      </Flex>
-      <Title name="Cadastro" />
-      <Flex flexDir="row" align="center" justify="center" m="auto" fontFamily="Delius">
-        <Flex
-          as="form"
-          w="100%"
-          maxWidth={760}
-          bg="white"
-          p="8"
-          borderRadius={8}
-          flexDir="column"
-          
-        >
-          <Stack spacing="2">
-            <Input
-              id="nome"
-              name="nome"
-              label="Nome: "
-              type="text"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              placeholder="Digite seu nome completo"
-              borderColor="green"
-              borderWidth="3px"
-              bg="rgb(255, 255, 255)"
-              focusBorderColor="rgba(5, 166, 89, 0.7)"
-            />
+      <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
+        <Flex flexDir="row" justify="space-between" align="center">
+          <Image
+            src={'/images/logo.png'}
+            alt="logo"
+            width={'88px'}
+            margin="10px"
+            position="absolute"
+          />
+          <Text
+            fontSize="60"
+            color="#146B49"
+            w="100%"
+            align="center"
+            margin="auto"
+            fontFamily="Delius"
+            mt="5"
+          >
+            Cadastre-se no Educamente
+          </Text>
+        </Flex>
+        <Title name="Cadastro" />
+        <Flex flexDir="row" align="center" justify="center" m="auto" fontFamily="Delius" mt="10">
+          <Flex
+            as="form"
+            w="100%"
+            maxWidth={760}
+            bg="white"
+            p="8"
+            borderRadius={8}
+            flexDir="column"
 
-            <FormLabel htmlFor="email">E-mail: </FormLabel>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Escreva seu email aqui"
-              borderColor="black"
-              borderWidth="1px"
-              bg="rgba(5, 166, 89, 0.7)"
-              focusBorderColor="rgba(5, 166, 89, 0.7)"
-            />
+          >
+            <Stack spacing="2">
+              <Input
+                mt="-2"
+                id="nome"
+                name="nome"
+                label="Nome: "
+                type="text"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder="Digite seu nome completo"
+                borderColor="green"
+                borderWidth="3px"
+                bg="rgb(255, 255, 255)"
+                focusBorderColor="rgba(5, 166, 89, 0.7)"
+              />
 
-            <InputMask
-              mask="999.999.999-99"
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
-            >
-              {(inputProps: any) => (
-                <Input
-                  name="cpf"
-                  type="text"
-                  label="CPF: "
-                  placeholder="000.000.000-00"
-                  {...inputProps}
-                  borderColor="black"
-                  borderWidth="1px"
-                  bg="rgba(5, 166, 89, 0.7)"
-                  focusBorderColor="rgba(5, 166, 89, 0.7)"
-                />
-              )}
-            </InputMask>
+              <FormLabel htmlFor="email">E-mail: </FormLabel>
+              <Input
+                mt="-5"
+                id="email"
+                name="email"
+                type="email"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Digite seu email"
+                borderColor="green"
+                borderWidth="3px"
+                bg="rgb(255, 255, 255)"
+                focusBorderColor="rgba(5, 166, 89, 0.7)"
+              />
 
-            <Flex flexDir="row" alignItems="center" gap={4}>
               <InputMask
-                mask="99/99/9999"
-                value={dataNascimento}
-                onChange={(e) => setDataNascimento(e.target.value)}
+                mask="999.999.999-99"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
               >
                 {(inputProps: any) => (
                   <Input
-                    name="nascimento"
+                    mt="-2"
+                    name="cpf"
                     type="text"
-                    label="Data de Nascimento: "
-                    placeholder="Dia/Mês/Ano"
+                    label="CPF: "
+                    placeholder="000.000.000-00"
                     {...inputProps}
-                    borderColor="black"
-                    borderWidth="1px"
-                    bg="rgba(5, 166, 89, 0.7)"
+                    borderColor="green"
+                    borderWidth="3px"
+                    bg="rgb(255, 255, 255)"
                     focusBorderColor="rgba(5, 166, 89, 0.7)"
                   />
                 )}
               </InputMask>
 
-              <InputMask
-                mask="(99) 99999-9999"
-                value={foneCelular}
-                onChange={(e) => setFoneCelular(e.target.value)}
+              <Flex flexDir="row" alignItems="center" gap={4}>
+                <InputMask
+                  mask="99/99/9999"
+                  value={dataNascimento}
+                  onChange={(e) => setDataNascimento(e.target.value)}
+                >
+                  {(inputProps: any) => (
+                    <Input
+                      mt="-2"
+                      name="nascimento"
+                      type="text"
+                      label="Data de Nascimento: "
+                      placeholder="Dia/Mês/Ano"
+                      {...inputProps}
+                      borderColor="green"
+                      borderWidth="3px"
+                      bg="rgb(255, 255, 255)"
+                      focusBorderColor="rgba(5, 166, 89, 0.7)"
+                    />
+                  )}
+                </InputMask>
+
+                <InputMask
+                  mask="(99) 99999-9999"
+                  value={foneCelular}
+                  onChange={(e) => setFoneCelular(e.target.value)}
+                >
+                  {(inputProps: any) => (
+                    <Input
+                      mt="-2"
+                      name="telefone"
+                      type="text"
+                      label="Telefone: "
+                      placeholder="(00) 00000-0000"
+                      {...inputProps}
+                      borderColor="green"
+                      borderWidth="3px"
+                      bg="rgb(255, 255, 255)"
+                      focusBorderColor="rgba(5, 166, 89, 0.7)"
+                    />
+                  )}
+                </InputMask>
+              </Flex>
+
+              <FormLabel htmlFor="senha">Senha: </FormLabel>
+              <Input
+                mt="-5"
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Digite sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                borderColor="green"
+                borderWidth="3px"
+                bg="rgb(255, 255, 255)"
+                focusBorderColor="rgba(5, 166, 89, 0.7)"
+              />
+
+              <FormLabel htmlFor="confirmaSenha">Confirme a Senha</FormLabel>
+              <Input
+                mt="-5"
+                id="confirmaSenha"
+                name="confirmaSenha"
+                type="password"
+                placeholder="Confirme sua senha"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                borderColor="green"
+                borderWidth="3px"
+                bg="rgb(255, 255, 255)"
+                focusBorderColor="rgba(5, 166, 89, 0.7)"
+              />
+            </Stack>
+
+            <Flex justify="space-between" w="100%" mt="6" align="center" >
+
+              <Link href="/login" passHref>
+                <Button
+                  w={140}
+                  colorScheme="red"
+                  size="lg"
+                  leftIcon={<ArrowBackIcon />}
+                >
+                  Voltar
+                </Button>
+              </Link>
+
+              <Button w={140} onClick={handleOpen} leftIcon={<CheckIcon />} colorScheme="green" size="lg"
+                disabled={!nome || !username || !password || !confirmPassword || !cpf || !dataNascimento || !foneCelular}
               >
-                {(inputProps: any) => (
-                  <Input
-                    name="telefone"
-                    type="text"
-                    label="Telefone: "
-                    placeholder="(00) 00000-0000"
-                    {...inputProps}
-                    borderColor="black"
-                    borderWidth="1px"
-                    bg="rgba(5, 166, 89, 0.7)"
-                    focusBorderColor="rgba(5, 166, 89, 0.7)"
-                  />
-                )}
-              </InputMask>
-            </Flex>
-
-            <FormLabel htmlFor="senha">Senha: </FormLabel>
-            <Input
-              id="senha"
-              name="senha"
-              type="password"
-              placeholder="Digite sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              borderColor="black"
-              borderWidth="1px"
-              bg="rgba(5, 166, 89, 0.7)"
-              focusBorderColor="rgba(5, 166, 89, 0.7)"
-            />
-
-            <FormLabel htmlFor="confirmaSenha">Confirme a Senha</FormLabel>
-            <Input
-              id="confirmaSenha"
-              name="confirmaSenha"
-              type="password"
-              placeholder="Confirme sua senha"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              borderColor="black"
-              borderWidth="1px"
-              bg="rgba(5, 166, 89, 0.7)"
-              focusBorderColor="rgba(5, 166, 89, 0.7)"
-            />
-          </Stack>
-
-          <Flex justify="space-between" w="100%" mt="6" align="center" >
-
-            <Link href="/login" passHref>
-              <Button
-                w={140}
-                colorScheme="red"
-                size="lg"
-                leftIcon={<ArrowBackIcon />}
-              >
-                Voltar
+                Concluir
               </Button>
-            </Link>
 
-            <Button w={140} onClick={handleOpen} leftIcon={<CheckIcon />} colorScheme="green" size="lg"
-              disabled={!nome || !username || !password || !confirmPassword || !cpf || !dataNascimento || !foneCelular}
-            >
-              Concluir
-            </Button>
+              <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                message="Tem certeza que deseja finalizar o cadastro agora?"
+                title="CONFIRMAÇÃO"
+                onClick={salvar}
+              />
 
-            <Modal
-              isOpen={isOpen}
-              onClose={onClose}
-              message="Tem certeza que deseja finalizar o cadastro agora?"
-              title="CONFIRMAÇÃO"
-              onClick={salvar}
-            />
-
+            </Flex>
           </Flex>
         </Flex>
-      </Flex>
-    </Box>
+      </Box>
     </>
   );
 }

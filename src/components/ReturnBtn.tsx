@@ -15,15 +15,15 @@ export function BtnVoltar({ top }: BtnVoltarProps) {
   };
 
   return (
-    <Flex position="absolute" left={4} top={top} transform="translateY(-50%)">
-      <Tooltip label="Voltar" fontSize="md" placement="top">
+    <Flex position="absolute" left={5} top={top} transform="translateY(-45%)">
+      <Tooltip label="Voltar" fontSize="md" placement="top" >
         <Button
           variant="outline"
           colorScheme="black"
           bg="#68d391"
-          size="lg"
+          size="big"
           borderRadius="full"
-          padding={2}
+          padding={4}
           leftIcon={<ArrowBackIcon />}
           _hover={{
             transform: 'scale(1.2)',
@@ -34,7 +34,11 @@ export function BtnVoltar({ top }: BtnVoltarProps) {
           }}
           minWidth="auto"
           minHeight="auto"
-          onClick={handleClick} 
+          onClick={handleClick}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          iconSpacing={0} 
         />
       </Tooltip>
     </Flex>

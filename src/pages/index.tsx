@@ -10,12 +10,15 @@ import {
 import Link from 'next/link'
 import Footer from "~components/Footer";
 import HeaderPrincipal from "~components/HeaderPrincipal";
-import { withAuth } from "../contexts/withAuth"; 
+import { withAuth } from "../contexts/withAuth";
+import Head from 'next/head'
 
 function App() {
-
   return (
     <>
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
       <HeaderPrincipal />
       <Box
         bg="#adf6db"
@@ -26,6 +29,7 @@ function App() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        fontFamily="Delius"
       >
         <Stack spacing={8} align="center" justify="center" px={{ base: 4, md: 0 }} width="100%" maxW="100%">
           <Card
@@ -38,6 +42,7 @@ function App() {
             width={{ base: "90%", sm: "550px", md: "600px" }}
             height="auto"
             maxW="100%"
+
           >
             <Link href="/cuidados/comportamento">
               <Image
@@ -50,9 +55,9 @@ function App() {
               />
             </Link>
 
-            <Stack>
+            <Stack mt="4">
               <CardBody>
-                <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
+                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius" mt="0">
                   SUGESTÕES
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
@@ -86,9 +91,10 @@ function App() {
               />
             </Link>
 
-            <Stack>
+            <Stack mt="5">
+
               <CardBody bg="transparent">
-                <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
+                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius">
                   COMUNIDADE
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
@@ -121,9 +127,10 @@ function App() {
               />
             </Link>
 
-            <Stack>
+            <Stack mt="5">
+
               <CardBody bg="transparent">
-                <Heading size="md" fontWeight="bold" textAlign="center" fontSize={{ base: "lg", sm: "md" }}>
+                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius">
                   DÚVIDAS?
                 </Heading>
                 <Text py="1" fontSize={{ base: "md", sm: "lg" }}>

@@ -4,10 +4,15 @@ import Link from "next/link";
 import CardTexto from "~components/CardCuidados";
 import { Header } from "~components/Header";
 import { BtnVoltar } from "~components/ReturnBtn";
+import { withAuth } from "~contexts/withAuth";
+import Head from "next/head";
 
-export default function EducacaoInfantilA() {
+function EducacaoInfantilA() {
   return (
     <>
+    <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
       <Header/>
       <Menu />
 
@@ -20,6 +25,7 @@ export default function EducacaoInfantilA() {
         alignItems="center"
         position="relative"
         overflow="hidden"
+        fontFamily="Delius"
       >
 
         <BtnVoltar
@@ -61,3 +67,4 @@ export default function EducacaoInfantilA() {
     </>
   )
 }
+export default withAuth(EducacaoInfantilA);

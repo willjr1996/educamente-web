@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ArrowBackIcon, CheckIcon } from '@chakra-ui/icons';
+import Head from "next/head";
 
 interface CustomModalProps {
     isOpen: boolean;
@@ -29,6 +30,10 @@ export default function CustomModal({ isOpen, onClose, message, title, onClick }
     };
 
     return (
+        <>
+        <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
         <ChakraModal isOpen={isOpen} onClose={onClose} isCentered>
             <ModalOverlay />
             <ModalContent
@@ -53,12 +58,13 @@ export default function CustomModal({ isOpen, onClose, message, title, onClick }
                     textAlign="center"
                     color="darkslategray"
                     flex="1"
+                    fontFamily="Delius"
                 >
                     {title.toUpperCase()}
                 </ModalHeader>
 
                 <ModalBody textAlign="center" p="10" bg="white" borderRadius="8px" mx="20" mt="15" minHeight="200px">
-                    <Text fontSize="xl" color="darkslategray" fontWeight="500">
+                    <Text fontSize="xl" color="darkslategray" fontWeight="500" fontFamily="Delius">
                         {message}
                     </Text>
                 </ModalBody>
@@ -71,6 +77,7 @@ export default function CustomModal({ isOpen, onClose, message, title, onClick }
                         _hover={{ bg: "red.600" }}
                         leftIcon={<ArrowBackIcon />}
                         mr="4"
+                        fontFamily="Delius"
                     >
                         Voltar
                     </Button>
@@ -80,11 +87,13 @@ export default function CustomModal({ isOpen, onClose, message, title, onClick }
                         color="white"
                         _hover={{ bg: "green.600" }}
                         leftIcon={<CheckIcon />}
+                        fontFamily="Delius"
                     >
                         Confirmar
                     </Button>
                 </ModalFooter>
             </ModalContent>
         </ChakraModal>
+        </>
     );
 }

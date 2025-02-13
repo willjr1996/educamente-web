@@ -9,12 +9,12 @@ export function withAuth(Component) {
 
     useEffect(() => {
       if (!user) {
-        router.push("/login"); // Redireciona se não estiver logado
+        router.push("/login");
       }
     }, [user]);
 
     if (!user) {
-      return null; // Evita que a página seja renderizada antes da verificação
+      return null;
     }
 
     return <Component {...props} />;

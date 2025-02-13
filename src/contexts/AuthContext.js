@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
             router.push("/");
         } catch (error) {
             console.error("Erro ao fazer login", error);
-            notifyError("Senha incorreta");
+            notifyError("Erro ao fazer login");
         }
     };
 

@@ -3,11 +3,15 @@ import { Menu } from "~components/Menu";
 import CardTexto from "~components/CardCuidados";
 import { Header } from "~components/Header";
 import { BtnVoltar } from "~components/ReturnBtn";
+import { withAuth } from "~contexts/withAuth";
+import Head from "next/head";
 
-
-export default function EducacaoInfantilC() {
+function EducacaoInfantilC() {
   return (
     <>
+    <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
       <Header />
       <Menu />
 
@@ -20,6 +24,7 @@ export default function EducacaoInfantilC() {
         alignItems="center"
         position="relative"
         overflowX="hidden"
+        fontFamily="Delius"
       >
 
         <BtnVoltar 
@@ -67,3 +72,4 @@ export default function EducacaoInfantilC() {
     </>
   );
 }
+export default withAuth(EducacaoInfantilC);

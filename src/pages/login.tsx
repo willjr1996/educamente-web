@@ -26,18 +26,20 @@ export default function Login() {
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
       <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
-        <Flex flexDir="column" align="center" justify="center" py={6}>
-          <Image src={'/images/logo.png'} alt="logo" width={'88px'} marginBottom={4} />
-          <Text fontSize="70" color="#146B49" textAlign="center" fontFamily="Delius">Bem vindo ao Educamente!</Text>
+        <Flex flexDir="column" align="center" justify="center" py={{base:'none' , md: '6'}}>
+          <Image src={'/images/logo.png'} alt="logo" width={{ base: '60px', md: '88px' }} marginBottom={4} />
+          <Text fontSize={{ base: "40px", md: "70px" }} color="#146B49" textAlign="center" fontFamily="Delius">
+            Bem vindo ao Educamente!
+          </Text>
         </Flex>
-
-        <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt="-200" fontFamily="Delius">
-          <Flex as="form" w="30%" maxWidth={660} bg="white" p="6" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
+  
+        <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt={{ base: "-100px", md: "-200px" }} fontFamily="Delius">
+          <Flex as="form" w={{ base: "90%", md: "30%" }} maxWidth={660} bg="white" p="6" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
             <Stack spacing="4">
-              <Text fontSize="50" color="#146B49" w="100%" textAlign="center" mt="-5" fontFamily="Delius">
+              <Text fontSize={{ base: "30px", md: "50px" }} color="#146B49" w="100%" textAlign="center" mt="-5" fontFamily="Delius">
                 Login
               </Text>
-              <FormLabel fontFamily="Delius" fontSize="30" mt="-5">Email: </FormLabel>
+              <FormLabel fontFamily="Delius" fontSize={{ base: "20px", md: "30px" }} mt="-5">Email: </FormLabel>
               <Input
                 mt="-5"
                 name="email"
@@ -51,7 +53,7 @@ export default function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 fontFamily="Delius"
               />
-              <FormLabel fontFamily="Delius" fontSize="30">Senha: </FormLabel>
+              <FormLabel fontFamily="Delius" fontSize={{ base: "20px", md: "30px" }}>Senha: </FormLabel>
               <Input
                 mt="-5"
                 name="password"
@@ -66,23 +68,43 @@ export default function Login() {
                 fontFamily="Delius"
               />
             </Stack>
-            <Flex justify="space-between" align="center" w="100%" mt="6" >
-              <Flex w="100%" justify="left">
+  
+            <Flex
+              justify="space-between"
+              align="center"
+              w="100%"
+              mt="6"
+              flexDir={{ base: "column", md: "row" }}
+              gap={{ base: 4, md: 0 }}
+            >
+              <Flex
+                w="100%"
+                justify={{ base: "center", md: "left" }}
+                flexDir={{ base: "column", md: "row" }}
+                gap={{ base: 6, md: 10 }}
+                textAlign={{ base: "center", md: "left" }}
+              >
                 <Link href="cadastro">
-                  <Text fontSize="sm" cursor="pointer" fontFamily="Delius" _hover={{ color: "green" }}>Não tem cadastro? Faça agora!</Text>
+                  <Text fontSize={{ base: "sm", md: "sm" }} cursor="pointer" fontFamily="Delius" _hover={{ color: "green" }}>
+                    Não tem cadastro? Faça agora!
+                  </Text>
+                </Link>
+  
+                <Link href="/recuperarSenha">
+                  <Text fontSize={{ base: "sm", md: "sm" }} cursor="pointer" fontFamily="Delius" _hover={{ color: "green" }}>
+                    Esqueceu a senha?
+                  </Text>
                 </Link>
               </Flex>
-
-              <Button w={140} type="submit" colorScheme="green" size="lg" fontFamily="Delius">Entrar</Button>
             </Flex>
-          </Flex>
-          <Flex justify="center" w="100%" mt="6" px="630" cursor="pointer">
-            <Link href="/recuperarSenha">
-              <Text fontFamily="Delius" _hover={{ color: "green" }}>Esqueceu a senha?</Text>
-            </Link>
+  
+            {/* Botão Entrar */}
+            <Button w="100%" type="submit" colorScheme="green" size="lg" fontFamily="Delius" mt="6">
+              Entrar
+            </Button>
           </Flex>
         </Flex>
       </Box>
     </>
-  )
+  );
 }

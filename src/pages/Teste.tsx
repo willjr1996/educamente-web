@@ -1,54 +1,71 @@
 import {
     Box,
-    Button,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalCloseButton,
-    ModalFooter,
-    useDisclosure,
+    Heading,
+    VStack,
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+    Input,
     Text,
-    Image
-} from "@chakra-ui/react";
-
-export default function ModalExample() {
-    // useDisclosure fornece funções para abrir e fechar o modal
-    const { isOpen, onOpen, onClose } = useDisclosure();
-
+  } from "@chakra-ui/react";
+  
+  export default function FAQ() {
+    const faqs = [
+      {
+        question: "Como faço para me cadastrar?",
+        answer:
+          "Você pode se cadastrar clicando no botão 'Não tem cadastro? Faça agora!' no canto inferior esquerdo da página de login.",
+      },
+      {
+        question: "Quais são os métodos de pagamento aceitos?",
+        answer: "Aceitamos cartões de crédito, débito e PIX.",
+      },
+      {
+        question: "Quanto tempo leva para a entrega?",
+        answer: "O prazo de entrega depende da sua localização, mas geralmente varia entre 3 a 7 dias úteis.",
+      },
+      {
+        question: "Como recuperar minha senha?",
+        answer: "Você pode recuperar sua senha clicando no botão 'Esqueceu a senha?' no canto inferior direito da página de login.",
+      },
+    ];
+  
     return (
-        <Box textAlign="center" py={10}>
-            {/* Botão que abre o modal */}
-            <Button onClick={onOpen} colorScheme="teal">
-                Open Modal
-            </Button>
-
-            {/* Modal */}
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>
-                        <Image src="/images/logo.png"/>
-                        Confirmação
-
-                    </ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Text>This is an example of a Chakra UI modal.</Text>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        {/* Botões no rodapé do modal */}
-                        <Button variant="ghost" mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                        <Button colorScheme="teal" onClick={onClose}>
-                            Save
-                        </Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
-        </Box>
+      <Box p={8} maxW="800px" mx="auto">
+        <Heading as="h1" size="xl" textAlign="center" mb={6} color="teal.500">
+          Perguntas Frequentes
+        </Heading>
+        <Text textAlign="center" mb={8} color="gray.600">
+          Aqui você encontra respostas para as dúvidas mais comuns. Caso precise
+          de mais ajuda, entre em contato com nosso suporte.
+        </Text>
+        {/* Campo de Busca
+        <Input
+          placeholder="Busque uma pergunta..."
+          size="lg"
+          mb={8}
+          borderColor="teal.400"
+          focusBorderColor="teal.600"
+        /> */}
+        {/* Acordeão com perguntas e respostas */}
+        <Accordion allowToggle>
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index}>
+              <h2>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left" fontWeight="bold">
+                    {faq.question}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>{faq.answer}</AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
     );
-}
+  }
+  

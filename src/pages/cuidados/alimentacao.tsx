@@ -145,11 +145,11 @@ return (
         </Box>
       )}
 
-      <VStack spacing={4} mt={{ base: 4, md: 8 }} w={{ base: "90%", md: "80%" }}>
+      <VStack spacing={4} mt={{ base: 4, md: 8 }} w={{ base: "90%", md: "10px" }}>
         {role === 'ROLE_FUNCIONARIO_ADMIN' && (
-          <Box w="100%">
+          <Box>
             <FormControl>
-              <FormLabel>Cadastrar Mensagem</FormLabel>
+              <FormLabel fontWeight="medium">Cadastrar Mensagem</FormLabel>
               <Textarea
                 value={conteudo}
                 onChange={e => {
@@ -163,12 +163,12 @@ return (
                 focusBorderColor="rgba(5, 166, 89, 0.7)"
                 fontFamily="Delius"
                 size="lg"
-                minH="150px"
+                // minH="10px"
                 resize="vertical"
-                w="100%"
+                justifyContent="center"
               />
             </FormControl>
-            <Button onClick={salvar} colorScheme="green" mt={4} fontFamily="Delius" w="100%">
+            <Button onClick={salvar} colorScheme="green" mt={4} fontFamily="Delius" width="10% !import" >
               Salvar Mensagem
             </Button>
           </Box>

@@ -13,15 +13,15 @@ import Link from "next/link";
 import Head from "next/head";
 
 export function Header() {
-  // Verifica se o token está presente no localStorage
+  
   const token = localStorage.getItem('token');
-  const username = localStorage.getItem('username'); // Supondo que o nome do usuário esteja no localStorage
+  const username = localStorage.getItem('username');
 
   // Função para fazer o logout (remover o token)
   const handleLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('username'); // Remove o nome do usuário também
-    window.location.href = '/'; // Redireciona para a página inicial ou login
+    localStorage.removeItem('username');
+    window.location.href = '/';
   };
 
   return (

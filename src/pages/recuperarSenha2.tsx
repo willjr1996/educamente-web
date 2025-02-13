@@ -25,7 +25,9 @@ export default function Cadastro() {
     }
 
     return (
-        <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
+        <>
+
+        <Box h="100vh" overflow="hidden" backgroundColor="#adf6db" fontFamily="Delius">
             <Flex flexDir="column" align="center" justify="center" h="100vh">
                 <Flex w="100%" justify="space-between" align="center" position="absolute" top={4} px={4}>
                     <Link href={'/'}>
@@ -61,31 +63,34 @@ export default function Cadastro() {
                         <Text fontSize="25"
                             color="#146B49"
                             textAlign="center"
-                            mb={8}>
-                            Preencha os campos de recuperar senha, e confirme-os para redefinir sua senha
+                            mb={8}
+                            mt="-5">
+                            Preencha os seguintes campos para redefinir sua senha:
                         </Text>
-                        <FormLabel htmlFor="senha">Senha:</FormLabel>
+                        <FormLabel htmlFor="senha" fontSize="30">Senha:</FormLabel>
                         <Input
                             id="senha"
                             name="senha"
                             type="text"
-                            placeholder="Escreva aqui sua nova senha de acesso"
-                            borderColor="black"
-                            borderWidth="1px"
-                            bg="rgba(5, 166, 89, 0.7)"
-                            focusBorderColor="rgba(5, 166, 89, 0.7)"
+                            placeholder="Digite aqui sua nova senha de acesso"
+                            borderColor="green"
+                                borderWidth="3px"
+                                bg="rgb(255, 255, 255)"
+                                focusBorderColor="rgba(5, 166, 89, 0.7)"
+                                mt="-5"
                         />
 
-                        <FormLabel htmlFor="confirmaSenha">Confirmar Senha:</FormLabel>
+                        <FormLabel htmlFor="confirmaSenha" fontSize="30">Confirmar Senha:</FormLabel>
                         <Input
                             id="confirmaSenha"
                             name="confirmaSenha"
                             type="text"
-                            placeholder="Reescreva aqui sua nova senha de acesso"
-                            borderColor="black"
-                            borderWidth="1px"
-                            bg="rgba(5, 166, 89, 0.7)"
-                            focusBorderColor="rgba(5, 166, 89, 0.7)"
+                            placeholder="Confirme aqui sua nova senha de acesso"
+                            borderColor="green"
+                                borderWidth="3px"
+                                bg="rgb(255, 255, 255)"
+                                focusBorderColor="rgba(5, 166, 89, 0.7)"
+                                mt="-5"
                         />
                     </Stack>
 
@@ -111,13 +116,15 @@ export default function Cadastro() {
                     </Flex>
 
                     <Modal
-                        isOpen={isOpen}
-                        onClose={onClose}
-                        message="Tem certeza que deseja finalizar a recuperação de senha agora?"
-                        title="CONFIRMAÇÃO"
-                    />
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            message="Tem certeza que deseja finalizar a recuperação de senha agora?"
+                            title="CONFIRMAÇÃO" onClick={function (): void {
+                                throw new Error('Function not implemented.');
+                            } }                    />
                 </Flex>
             </Flex>
         </Box>
+        </>
     );
 }

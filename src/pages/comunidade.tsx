@@ -5,16 +5,20 @@ import Footer from '~components/Footer';
 import { BtnVoltar } from '~components/ReturnBtn';
 import { Header } from '~components/Header';
 import { withAuth } from '~contexts/withAuth';
+import Head from 'next/head';
 
 function ComunidadePais() {
     return (
         <>
+            <Head>
+                <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+            </Head>
             <Header />
             <Box h="100vh" overflowY="auto" backgroundColor="#adf6db">
-            <BtnVoltar
-             top='15%'
-            />
-                <Flex flexDir="column" align="center" justify="flex-start" pt={28} px={4}>
+                <BtnVoltar
+                    top='15%'
+                />
+                <Flex flexDir="column" align="center" justify="flex-start" pt={28} px={4} fontFamily="Delius">
                     <Text fontSize="3xl" color="#146B49" textAlign="center" mb={4}>
                         COMUNIDADE DE PAIS
                     </Text>

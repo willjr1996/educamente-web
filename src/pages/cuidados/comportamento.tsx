@@ -182,7 +182,7 @@ return (
         )}
 
         {lista.map((item) => (
-          <Box key={item.id} display="flex" alignItems="center" w="100%">
+          <Box key={item.id} display="flex" justifyContent="center" alignItems="center" w="100%">
             <CardTexto>{item.conteudo}</CardTexto>
             {role === 'ROLE_FUNCIONARIO_ADMIN' && (
               <Button colorScheme="red" ml={2} onClick={() => remover(item.id)}>

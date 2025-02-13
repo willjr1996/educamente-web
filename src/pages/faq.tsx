@@ -14,6 +14,7 @@ import { withAuth } from "../contexts/withAuth";
 import Head from "next/head";
 import { Header } from "~components/Header";
 import { BtnVoltar } from "~components/ReturnBtn";
+import Footer from "~components/Footer";
 
 
 function FAQ() {
@@ -117,6 +118,7 @@ function FAQ() {
           </Accordion>
         </Box>
       </Box>
+      <Footer/>
     </>
   );
 }

@@ -13,6 +13,8 @@ import {
 import { withAuth } from "../contexts/withAuth";
 import Head from "next/head";
 import { Header } from "~components/Header";
+import { BtnVoltar } from "~components/ReturnBtn";
+
 
 function FAQ() {
   const faqs = [
@@ -43,23 +45,26 @@ function FAQ() {
       ]
     },
     {
-      question: "Como recuperar minha senha?",
-      answer: "Você pode recuperar sua senha clicando no botão 'Esqueceu a senha?' no canto inferior direito da página de login.",
+      question: "Como faço para ver as sugestões de saúde mental infantil?",
+      answer: [
+        "Para acesar sugestões de bem-estar infantil:",
+        "Cadastre-se no site e faça login.",
+        "No menu pricipal, clique na aba 'Sugestões.'",
+        "Visualize conteúdos exclusivos sobre saúde mental infantil.",
+      ]
     },
     {
       question: "Como recuperar minha senha?",
       answer: "Você pode recuperar sua senha clicando no botão 'Esqueceu a senha?' no canto inferior direito da página de login.",
     },
-    {
-      question: "Como recuperar minha senha?",
-      answer: "Você pode recuperar sua senha clicando no botão 'Esqueceu a senha?' no canto inferior direito da página de login.",
-    },
+
   ];
   return (
     <>
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
+      <BtnVoltar top="15%"/>
       <Header />
       <Box minH="100vh" bg="#adf6db" fontFamily="Delius">
         <Box p={[4, 8]} maxW="800px" mx="auto">

@@ -6,6 +6,7 @@ import {
   Heading,
   CardBody,
   Image,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Link from 'next/link'
 import Footer from "~components/Footer";
@@ -14,6 +15,15 @@ import Head from 'next/head'
 import { Header } from "~components/Header";
 
 function App() {
+
+  const cardDirection = useBreakpointValue({ base: 'column', md: 'row' });
+  const imageSize = useBreakpointValue({ base: " 100%", md: "100%" });
+  const headingSize = useBreakpointValue({ base: "lg", md: "md" });
+  const textSize = useBreakpointValue({ base: "md", md: "lg" });
+  const cardWidth = useBreakpointValue({ base: "90%", md: "600px" });
+  const stackSpacing = useBreakpointValue({ base: 4, md: 8 });
+
+
   return (
     <>
       <Head>
@@ -31,109 +41,129 @@ function App() {
         alignItems="center"
         fontFamily="Delius"
       >
-        <Stack spacing={8} align="center" justify="center" px={{ base: 4, md: 0 }} width="100%" maxW="100%">
+        <Stack spacing={stackSpacing} align="center" justify="center" px={{ base: 4, md: 0 }} width="100%" maxW="100%">
+          {/* Card 1: Sugestões */}
           <Card
-            direction={{ base: 'column', sm: 'row' }}
+            direction={cardDirection === 'column' ? 'column' : 'row'}
             overflow="hidden"
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
             bg="transparent"
-            width={{ base: "90%", sm: "550px", md: "600px" }}
+            width={cardWidth}
             height="auto"
             maxW="100%"
-
           >
             <Link href="/cuidados/comportamento">
-              <Image
-                objectFit="cover"
-                maxW="100%"
-                height={{ base: "150px", sm: "200px" }}
-                width="100%"
+              <Box
+                width={imageSize}
+                height={imageSize}
+                position="relative"
                 cursor="pointer"
-                src="/images/duvidas.png"
-              />
+              >
+                <Image
+                  src="/images/duvidas.png"
+                  alt="Sugestões"
+                  objectFit="cover"
+                  width="100%"
+                  height="100%"
+                  borderRadius="10"
+                />
+              </Box>
             </Link>
 
-            <Stack mt="4">
+            <Stack mt={{ base: 4, sm: 0 }} ml={{ sm: 4 }}>
               <CardBody>
-                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius" mt="0">
+                <Heading size={headingSize} fontWeight="bold" textAlign="left" fontFamily="Delius">
                   SUGESTÕES
                 </Heading>
-                <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
+                <Text py="1" fontSize={textSize}>
                   Acesse informações e sugestões confiáveis de cuidados para seus
-                  filhos de acordo com a idade
+                  filhos de acordo com a idade.
                 </Text>
               </CardBody>
             </Stack>
           </Card>
 
+          {/* Card 2: Comunidade */}
           <Card
-            direction={{ base: 'column', sm: 'row-reverse' }}
+            direction={cardDirection === 'column' ? 'column' : 'row-reverse'}
             overflow="hidden"
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
             bg="transparent"
-            width={{ base: "90%", sm: "600px", md: "600px" }}
+            width={cardWidth}
             height="auto"
             maxW="100%"
           >
-
             <Link href="/comunidade/comportamento">
-              <Image
-                objectFit="cover"
-                maxW="100%"
-                height={{ base: "150px", sm: "200px" }}
-                width="100%"
+              <Box
+                width={imageSize}
+                height={imageSize}
+                position="relative"
                 cursor="pointer"
-                src="/images/confiante.png"
-              />
+              >
+                <Image
+                  src="/images/confiante.png"
+                  alt="Comunidade"
+                  objectFit="cover"
+                  width="100%"
+                  height="100%"
+                  borderRadius="10"
+                />
+              </Box>
             </Link>
 
-            <Stack mt="5">
-
-              <CardBody bg="transparent">
-                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius">
+            <Stack mt={{ base: 4, sm: 0 }} mr={{ sm: 4 }}>
+              <CardBody>
+                <Heading size={headingSize} fontWeight="bold" textAlign="left" fontFamily="Delius">
                   COMUNIDADE
                 </Heading>
-                <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
+                <Text py="1" fontSize={textSize}>
                   Entre em nossa comunidade de pais e nos ajude compartilhando suas
-                  experiências com seus filhos
+                  experiências com seus filhos.
                 </Text>
               </CardBody>
             </Stack>
           </Card>
 
+          {/* Card 3: Dúvidas */}
           <Card
-            direction={{ base: 'column', sm: 'row' }}
+            direction={cardDirection === 'column' ? 'column' : 'row'}
             overflow="hidden"
             variant="outline"
             borderRadius="10"
             borderColor="transparent"
             bg="transparent"
-            width={{ base: "90%", sm: "550px", md: "600px" }}
+            width={cardWidth}
             height="auto"
             maxW="100%"
           >
-            <Link href="/faq" passHref>
-              <Image
-                objectFit="cover"
-                maxW="100%"
-                height={{ base: "150px", sm: "200px" }}
-                width="100%"
+            <Link href="/faq">
+              <Box
+                width={imageSize}
+                height={imageSize}
+                position="relative"
                 cursor="pointer"
-                src="/images/heal.png"
-              />
+              >
+                <Image
+                  src="/images/heal.png"
+                  alt="Dúvidas"
+                  objectFit="cover"
+                  width="100%"
+                  height="100%"
+                  borderRadius="10"
+                />
+              </Box>
             </Link>
 
-            <Stack mt="5">
-              
-              <CardBody bg="transparent">
-                <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius">
+            <Stack mt={{ base: 4, sm: 0 }} ml={{ sm: 4 }}>
+              <CardBody>
+                <Heading size={headingSize} fontWeight="bold" textAlign="left" fontFamily="Delius">
                   DÚVIDAS?
                 </Heading>
-                <Text py="1" fontSize={{ base: "md", sm: "lg" }}>
+                <Text py="1" fontSize={textSize}>
                   Entre em contato com nossa equipe de suporte para ajudar com suas dúvidas.
                 </Text>
               </CardBody>
@@ -145,4 +175,5 @@ function App() {
     </>
   );
 }
+
 export default withAuth(App);

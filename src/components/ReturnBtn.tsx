@@ -3,7 +3,7 @@ import { Button, Tooltip, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router"; 
 
 interface BtnVoltarProps {
-  top: string;  
+  top: string | { base: string; md: string };
 }
 
 export function BtnVoltar({ top }: BtnVoltarProps) {

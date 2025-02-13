@@ -13,7 +13,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 export function Header() {
-  
+
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('username');
 
@@ -24,61 +24,122 @@ export function Header() {
     window.location.href = '/';
   };
 
+  //   return (
+  //     <>
+  //     <Head>
+  //         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+  //       </Head>
+  //     <Box bg="mintcream" p={4} boxShadow="sm" fontFamily="Delius">
+  //       <Flex
+  //         align="center"
+  //         justify="space-between"
+  //         flexDirection={{ base: "column", md: "row" }}
+  //         gap={4}
+  //       >
+  //         <Box
+  //           w={{ base: "60px", md: "80px" }}
+  //           h={{ base: "60px", md: "80px" }}
+  //           display="flex"
+  //           alignItems="center"
+  //           justifyContent="center"
+  //           borderRadius="md"
+  //           mt="-20"
+  //         >
+  //           <Link href={"/"} >
+  //             <Image src="/images/logo.png" cursor="pointer" mt="20" width="50px"/>
+  //           </Link>
+  //         </Box>
+
+  //         <Flex align="center" gap={6}>
+  //           <Link href="/notificacoes" passHref>
+  //             <Flex flexDir="column" align="center" cursor="pointer">
+  //               <Icon as={BellIcon} boxSize={6} color="green.700" />
+  //               <Text fontSize="sm" color="green.700" ml={1}>
+  //                 Ativar Notificações
+  //               </Text>
+  //             </Flex>
+  //           </Link>
+
+  //           {!token ? (
+  //             <>
+  //               <Link href="/login">
+  //                 <Text fontSize="sm" color="green.700" cursor="pointer">
+  //                   Entrar
+  //                 </Text>
+  //               </Link>
+  //             </>
+  //           ) : (
+
+
+  //               <Button onClick={handleLogout} colorScheme="green" size="sm">
+  //                 Sair
+  //               </Button>
+
+  //           )}
+  //         </Flex>
+  //       </Flex>
+  //     </Box>
+  //     </>
+  //   );
+  // }
+
   return (
     <>
-    <Head>
+      <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
-    <Box bg="mintcream" p={4} boxShadow="sm" fontFamily="Delius">
-      <Flex
-        align="center"
-        justify="space-between"
-        flexDirection={{ base: "column", md: "row" }}
-        gap={4}
-      >
-        <Box
-          w={{ base: "60px", md: "80px" }}
-          h={{ base: "60px", md: "80px" }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          borderRadius="md"
-          mt="-20"
+      <Box bg="mintcream" p={4} boxShadow="sm" fontFamily="Delius">
+        <Flex
+          align="center"
+          justify="space-between"
+          flexDirection={{ base: "column", md: "row" }} // Coluna em mobile, linha em desktop
+          gap={{ base: 2, md: 6 }} // Espaçamento menor em mobile, maior em desktop
         >
-          <Link href={"/"} >
-            <Image src="/images/logo.png" cursor="pointer" mt="20" width="50px"/>
-          </Link>
-        </Box>
+          {/* Logo */}
+          <Box
+            w={{ base: "50px", md: "80px" }} // Tamanho menor em mobile, maior em desktop
+            h={{ base: "50px", md: "80px" }}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="md"
+          >
+            <Link href={"/"}>
+              <Image src="/images/logo.png" cursor="pointer" width={{ base: "50px", md: "80px" }} />
+            </Link>
+          </Box>
 
-        <Flex align="center" gap={6}>
-          <Link href="/notificacoes" passHref>
-            <Flex flexDir="column" align="center" cursor="pointer">
-              <Icon as={BellIcon} boxSize={6} color="green.700" />
-              <Text fontSize="sm" color="green.700" ml={1}>
-                Ativar Notificações
-              </Text>
-            </Flex>
-          </Link>
+          {/* Notificações e Login/Logout */}
+          <Flex align="center" gap={{ base: 12, md: 8 }}>
+            {/* Botão de Notificações */}
+            <Link href="/notificacoes" passHref>
+              <Flex flexDir="column" align="center" cursor="pointer">
+                <Icon as={BellIcon} boxSize={{ base: 5, md: 6 }} color="green.700" /> {/* Ícone menor em mobile */}
+                <Text fontSize={{ base: "xs", md: "sm" }} color="green.700" ml={1}> {/* Texto menor em mobile */}
+                  Ativar Notificações
+                </Text>
+              </Flex>
+            </Link>
 
-          {!token ? (
-            <>
+            {/* Login/Logout */}
+            {!token ? (
               <Link href="/login">
-                <Text fontSize="sm" color="green.700" cursor="pointer">
+                <Text fontSize={{ base: "xs", md: "sm" }} color="green.700" cursor="pointer"> {/* Texto menor em mobile */}
                   Entrar
                 </Text>
               </Link>
-            </>
-          ) : (
-            
-              
-              <Button onClick={handleLogout} colorScheme="green" size="sm">
+            ) : (
+              <Button
+                onClick={handleLogout}
+                colorScheme="green"
+                size={{ base: "xs", md: "sm" }} // Botão menor em mobile
+              >
                 Sair
               </Button>
-            
-          )}
+            )}
+          </Flex>
         </Flex>
-      </Flex>
-    </Box>
+      </Box>
     </>
   );
 }

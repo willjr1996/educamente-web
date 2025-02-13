@@ -9,9 +9,9 @@ import {
 } from "@chakra-ui/react";
 import Link from 'next/link'
 import Footer from "~components/Footer";
-import HeaderPrincipal from "~components/HeaderPrincipal";
 import { withAuth } from "../contexts/withAuth";
 import Head from 'next/head'
+import { Header } from "~components/Header";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
-      <HeaderPrincipal />
+      <Header />
       <Box
         bg="#adf6db"
         minH="100vh"
@@ -80,7 +80,7 @@ function App() {
             maxW="100%"
           >
 
-            <Link href="/comunidade">
+            <Link href="/comunidade/comportamento">
               <Image
                 objectFit="cover"
                 maxW="100%"

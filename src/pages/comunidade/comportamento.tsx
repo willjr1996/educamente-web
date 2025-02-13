@@ -25,20 +25,24 @@ function ComunidadePais() {
 
                     {/* Tags - Filtro */}
                     <Flex justify="center" gap={4} mb={4}>
-                        <Tag size="lg" colorScheme="green" borderRadius="full">
-                            <TagLabel>COMPORTAMENTO</TagLabel>
+                        <Tag size="lg" colorScheme="green" borderRadius="full" fontWeight="bold">
+                            <TagLabel>Comportamento</TagLabel>
                         </Tag>
                         <Tag size="lg" colorScheme="green" borderRadius="full">
-                            <TagLabel>ALIMENTAÇÃO</TagLabel>
+                            <Link href="/comunidade/alimentacao">
+                                Alimentação
+                            </Link>
                         </Tag>
                         <Tag size="lg" colorScheme="green" borderRadius="full">
-                            <TagLabel>SAÚDE MENTAL</TagLabel>
+                            <Link href="/comunidade/saudemental">
+                                Saúde mental
+                            </Link>
                         </Tag>
                     </Flex>
 
                     <Flex w="100%" maxWidth={760} bg="white" p={4} borderRadius={16} boxShadow="md" mb={4}>
                         <Textarea
-                            placeholder="Comente aqui as suas experiências"
+                            placeholder="Comente aqui as suas experiências sobre comportamento"
                             bg="rgba(5, 166, 89, 0.1)"
                             borderColor="gray.300"
                             flex={1}

@@ -116,7 +116,7 @@ function App() {
             height="auto"
             maxW="100%"
           >
-            <Link href="" passHref>
+            <Link href="/faq" passHref>
               <Image
                 objectFit="cover"
                 maxW="100%"
@@ -128,7 +128,7 @@ function App() {
             </Link>
 
             <Stack mt="5">
-
+              
               <CardBody bg="transparent">
                 <Heading size="md" fontWeight="bold" textAlign="left" fontSize={{ base: "lg", sm: "md" }} fontFamily="Delius">
                   DÚVIDAS?

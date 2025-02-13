@@ -10,8 +10,11 @@ import {
     Input,
     Text,
   } from "@chakra-ui/react";
-  
-  export default function FAQ() {
+  import { withAuth } from "../contexts/withAuth";
+import Head from "next/head";
+import { Header } from "~components/Header";
+
+ function FAQ() {
     const faqs = [
       {
         question: "Como faço para me cadastrar?",
@@ -33,11 +36,16 @@ import {
     ];
   
     return (
+      <>
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+      </Head>
+      <Header />
       <Box p={8} maxW="800px" mx="auto">
-        <Heading as="h1" size="xl" textAlign="center" mb={6} color="teal.500">
+        <Heading as="h1" size="xl" textAlign="center" mb={6} color="teal.500" fontFamily="Delius">
           Perguntas Frequentes
         </Heading>
-        <Text textAlign="center" mb={8} color="gray.600">
+        <Text textAlign="center" mb={8} color="gray.600" fontFamily="Delius">
           Aqui você encontra respostas para as dúvidas mais comuns. Caso precise
           de mais ajuda, entre em contato com nosso suporte.
         </Text>
@@ -50,7 +58,7 @@ import {
           focusBorderColor="teal.600"
         /> */}
         {/* Acordeão com perguntas e respostas */}
-        <Accordion allowToggle>
+        <Accordion allowToggle fontFamily="Delius">
           {faqs.map((faq, index) => (
             <AccordionItem key={index}>
               <h2>
@@ -66,6 +74,7 @@ import {
           ))}
         </Accordion>
       </Box>
+      </>
     );
   }
-  
+  export default withAuth(FAQ);

@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/cuidados/comportamento": "pages/cuidados/comportamento.js"
+  "/faq": "pages/faq.js",
+  "/": "pages/index.js",
+  "/cuidados/comportamento": "pages/cuidados/comportamento.js",
+  "/notificacoes": "pages/notificacoes.js",
+  "/login": "pages/login.js"
 }

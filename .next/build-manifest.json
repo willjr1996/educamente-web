@@ -30,25 +30,30 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/comunidade/comportamento": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/comunidade/comportamento.js"
+    ],
+    "/cuidados/alimentacao": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/cuidados/alimentacao.js"
+    ],
     "/cuidados/comportamento": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/cuidados/comportamento.js"
     ],
-    "/faq": [
+    "/cuidados/saudeMental": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/faq.js"
+      "static/chunks/pages/cuidados/saudeMental.js"
     ],
     "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/login.js"
-    ],
-    "/notificacoes": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/notificacoes.js"
     ]
   },
   "ampFirstPages": []

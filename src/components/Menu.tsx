@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export function Menu() {
   return (
@@ -8,8 +9,8 @@ export function Menu() {
     <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
-    <Box bg="#b3f0db" w="100%">
-      <Heading as="h2" size="md" textAlign="center" mb={4} fontFamily="Delius">
+    <Box bg="#b3f0db" w="100%" pt={10}>
+      <Heading as="h2" size="md" textAlign="center" mb={10} fontFamily="Delius">
         TIPOS DE CUIDADOS
       </Heading>
       <Flex justifyContent="center" gap={4}>

@@ -26,15 +26,15 @@ export default function Login() {
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
       <Box h="100vh" overflow="hidden" backgroundColor="#adf6db">
-        <Flex flexDir="column" align="center" justify="center" py={{base:'none' , md: '6'}}>
+        <Flex flexDir="column" align="center" justify="center" py={{base:'none' , md: '4'}}>
           <Image src={'/images/logo.png'} alt="logo" width={{ base: '60px', md: '88px' }} marginBottom={4} />
-          <Text fontSize={{ base: "40px", md: "70px" }} color="#146B49" textAlign="center" fontFamily="Delius">
+          <Text fontSize={{ base: "40px", md: "5xl" }} color="#146B49" textAlign="center" fontFamily="Delius">
             Bem vindo ao Educamente!
           </Text>
         </Flex>
   
-        <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt={{ base: "-100px", md: "-200px" }} fontFamily="Delius">
-          <Flex as="form" w={{ base: "90%", md: "30%" }} maxWidth={660} bg="white" p="6" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
+        <Flex flexDir="column" align="center" justify="center" h="100vh" overflow="hidden" mt={{ base: "-100px", md: "-120px" }} fontFamily="Delius">
+          <Flex as="form" w={{ base: "90%", md: "90%" }} maxWidth={660} bg="white" p="4" borderRadius={8} flexDir="column" onSubmit={handleLogin}>
             <Stack spacing="4">
               <Text fontSize={{ base: "30px", md: "50px" }} color="#146B49" w="100%" textAlign="center" mt="-5" fontFamily="Delius">
                 Login
@@ -79,10 +79,10 @@ export default function Login() {
             >
               <Flex
                 w="100%"
-                justify={{ base: "center", md: "left" }}
+                justify={{ base: "center", md: "space-between" }}
                 flexDir={{ base: "column", md: "row" }}
-                gap={{ base: 6, md: 10 }}
-                textAlign={{ base: "center", md: "left" }}
+                gap={{ base: 6, md: 20 }}
+                textAlign={{ base: "center", md: "center" }}
               >
                 <Link href="cadastro">
                   <Text fontSize={{ base: "sm", md: "sm" }} cursor="pointer" fontFamily="Delius" _hover={{ color: "green" }}>

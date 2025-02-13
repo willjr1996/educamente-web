@@ -1,75 +1,128 @@
-import { Box, VStack, Image } from "@chakra-ui/react";
+import { Box, VStack, Image, Input, Button, Textarea } from "@chakra-ui/react";
 import { Menu } from "~components/Menu";
 import CardTexto from "~components/CardCuidados";
 import { Header } from "~components/Header";
 import { BtnVoltar } from "~components/ReturnBtn";
 import { withAuth } from "~contexts/withAuth";
 import Head from "next/head";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { notifyError, notifySuccess } from '~utils/utils'
+import { useAuth } from "~contexts/AuthContext";
+import { FormControl, FormLabel } from '@chakra-ui/react'
 
 function EducacaoInfantilC() {
+  const { user } = useAuth(); 
+  const { role } = user;
+  const [lista, setLista] = useState<{ conteudo: string, id: number }[]>([]);
+  const [conteudo, setConteudo] = useState('');
+  const [comportamentoRequest, setComportamentoRequest] = useState({
+    idFuncionario: 1,
+    mensagem: '',
+    dataRegistro: new Date().toLocaleDateString('pt-BR'),
+  });
+
+  useEffect(() => {
+    carregarLista();
+  }, [])
+
+  function carregarLista() {
+    axios.get("http://localhost:8080/api/comportamento")
+      .then((response) => {
+        setLista(response.data)
+      })
+  }
+
+  function salvar() {
+    axios.post("http://localhost:8080/api/sugestao/comportamento", comportamentoRequest)
+      .then(() => {
+        notifySuccess('Mensagem sobre comportamento cadastrada com sucesso.');
+        setConteudo(''); 
+        carregarLista();
+      })
+      .catch((error) => {
+        handleErrors(error);
+      })
+  }
+
+  async function remover(id: number) {
+    await axios.delete(`http://localhost:8080/api/comportamento/${id}`)
+      .then(() => {
+        notifySuccess('Mensagem removida com sucesso.');
+        carregarLista();
+      })
+      .catch((error) => {
+        handleErrors(error);
+      })
+  }
+
+  function handleErrors(error: any) {
+    if (error.response?.data?.errors) {
+      error.response.data.errors.forEach((err: { defaultMessage: string }) => notifyError(err.defaultMessage));
+    } else {
+      notifyError(error.response?.data?.message || 'Erro desconhecido');
+    }
+  }
+
   return (
     <>
-    <Head>
+      <Head>
         <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
       </Head>
       <Header />
       <Menu />
 
-      <Box
-        bg="#b3f0db"
-        w="100%"
-        minH="100vh"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        position="relative"
-        overflowX="hidden"
-        fontFamily="Delius"
-      >
-
-        <BtnVoltar 
-         top='3%'
-        />
+      <Box bg="#b3f0db" w="100%" minH="100vh" display="flex" flexDirection="column" alignItems="center" position="relative" overflowX="hidden" fontFamily="Delius">
+        <BtnVoltar top='3%' />
 
         <Box position="absolute" top="20px" left="80px">
-          <Image
-            src="/images/duvida.png"
-            w="200px"
-            h="200px"
-            borderRadius="50%"
-          />
+          <Image src="/images/duvida.png" w="200px" h="200px" borderRadius="50%" />
         </Box>
 
         <Box position="absolute" bottom="20px" right="20px">
-          <Image
-            src="/images/pulaPula.png"
-            w="220px"
-            h="208px"
-            borderRadius="50%"
-          />
+          <Image src="/images/pulaPula.png" w="220px" h="208px" borderRadius="50%" />
         </Box>
 
         <VStack spacing={4} mt={8}>
-          <CardTexto>
-            A educação infantil deve ser baseada no respeito, incentivando a
-            curiosidade das crianças e promovendo um ambiente de aprendizado
-            acolhedor e divertido.
-          </CardTexto>
+          {role === 'ROLE_FUNCIONARIO_ADMIN' && (
+            <Box>
+              <FormControl>
+                <FormLabel>Cadastrar Mensagem</FormLabel>
+                <Textarea
+          value={conteudo}
+          onChange={e => {
+            setConteudo(e.target.value);
+            setComportamentoRequest({ ...comportamentoRequest, mensagem: e.target.value });
+          }}
+          placeholder="Digite a mensagem"
+          borderColor="green"
+          borderWidth="3px"
+          bg="rgb(255, 255, 255)"
+          focusBorderColor="rgba(5, 166, 89, 0.7)"
+          fontFamily="Delius"
+          size="lg" // Aumenta a altura inicial
+          minH="150px" // Define altura mínima para expandir
+          resize="vertical" // Permite redimensionamento pelo usuário
+        />
+              </FormControl>
+              <Button onClick={salvar} colorScheme="green" mt={4} fontFamily="Delius">
+                Salvar Mensagem
+              </Button>
+            </Box>
+          )}
 
-          <CardTexto>
-            Estabelecer uma rotina diária de atividades lúdicas e educativas
-            estimula o desenvolvimento cognitivo e emocional, preparando as
-            crianças para o futuro.
-          </CardTexto>
-
-          <CardTexto>
-            Incentivar o diálogo e a escuta ativa nas crianças ajuda a
-            desenvolver habilidades sociais, fortalecendo a comunicação e o
-            relacionamento interpessoal desde cedo.
-          </CardTexto>
+          {lista.map((item) => (
+            <Box key={item.id} display="flex" alignItems="center">
+              <CardTexto>{item.conteudo}</CardTexto>
+              {role === 'ROLE_FUNCIONARIO_ADMIN' && (
+                <Button colorScheme="red" ml={2} onClick={() => remover(item.id)} >Remover</Button>
+              )}
+            </Box>
+          ))}
         </VStack>
       </Box>
     </>
   );
 }
+
 export default withAuth(EducacaoInfantilC);

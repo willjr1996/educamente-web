@@ -10,8 +10,9 @@ import {
 import Link from 'next/link'
 import Footer from "~components/Footer";
 import HeaderPrincipal from "~components/HeaderPrincipal";
+import { withAuth } from "../contexts/withAuth"; 
 
-export default function App() {
+function App() {
 
   return (
     <>
@@ -137,5 +138,4 @@ export default function App() {
     </>
   );
 }
-
-
+export default withAuth(App);

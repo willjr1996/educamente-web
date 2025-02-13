@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-
+import { notifyError } from '~utils/utils';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -9,10 +9,9 @@ export const AuthProvider = ({ children }) => {
     const router = useRouter();
 
     useEffect(() => {
-        // Verifica se há um token salvo no localStorage ao carregar a aplicação
         const token = localStorage.getItem("token");
         if (token) {
-            setUser({ token }); // Define o usuário autenticado
+            setUser({ token });
         }
     }, []);
 
@@ -27,10 +26,10 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem("token", token);
             setUser({ token });
             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-            router.push("/"); // Redireciona para página segura
+            router.push("/");
         } catch (error) {
             console.error("Erro ao fazer login", error);
-            alert("Credenciais inválidas");
+            notifyError("Senha incorreta");
         }
     };
 

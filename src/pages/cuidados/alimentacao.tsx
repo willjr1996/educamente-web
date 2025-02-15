@@ -89,9 +89,9 @@ return (
         </Box>
       )}
 
-      <VStack spacing={4} mt={{ base: 4, md: 8 }} w={{ base: "90%", md: "10px" }}>
+      <VStack spacing={4} mt={{ base: 4, md: 8 }} w={{ base: "90%", md: "80px" }}>
         {role === 'ROLE_FUNCIONARIO_ADMIN' && (
-          <Box>
+          <Box >
             <FormControl>
               <FormLabel fontWeight="medium">Cadastrar Mensagem</FormLabel>
               <Textarea
@@ -107,7 +107,7 @@ return (
                 focusBorderColor="rgba(5, 166, 89, 0.7)"
                 fontFamily="Delius"
                 size="lg"
-                // minH="10px"
+                minH="100px"
                 resize="vertical"
                 justifyContent="center"
               />

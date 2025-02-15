@@ -32,8 +32,8 @@ export function BtnVoltar({ top }: BtnVoltarProps) {
           _focus={{
             boxShadow: 'none',
           }}
-          minWidth="auto"
-          minHeight="auto"
+          width="1"
+          height="1"
           onClick={handleClick}
           display="flex"
           justifyContent="center"

@@ -14,10 +14,11 @@ import { FormControl, FormLabel } from "@chakra-ui/react";
 function EducacaoInfantilS() {
   const { user } = useAuth();
   const { role } = user;
+  const { id } = user;
   const [lista, setLista] = useState<{ conteudo: string, id: number }[]>([]);
   const [conteudo, setConteudo] = useState('');
   const [saudeRequest, setSaudeRequest] = useState({
-    idFuncionario: 1,
+    idFuncionario: id,
     mensagem: '',
     dataRegistro: new Date().toLocaleDateString('pt-BR'),
   });

@@ -107,13 +107,6 @@ export default function Cadastro() {
                                 Confirmar
                             </Button>
                         </Flex>
-
-                        {/* <Modal
-                        isOpen={isOpen}
-                        onClose={onClose}
-                        message="Tem certeza que deseja finalizar a recuperação de senha agora?"
-                        title="CONFIRMAÇÃO"
-                    /> -- Precisa modificar o modal, para atender as necessidades da tela, a discutir com a equipe*/}
                     </Flex>
                 </Flex>
             </Box>

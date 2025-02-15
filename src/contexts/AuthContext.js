@@ -85,9 +85,10 @@ export const AuthProvider = ({ children }) => {
             const token = localStorage.getItem("token");
             const role = localStorage.getItem("role");
             const userId = localStorage.getItem("userId");
+            const nome = localStorage.getItem("nome");
 
-            if (token && role && userId) {
-                setUser({ token, role, userId });
+            if (token && role && userId && nome) {
+                setUser({ token, role, userId, nome });
                 axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
             }
         }
@@ -95,23 +96,28 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
+            localStorage.removeItem("token");
+            delete axios.defaults.headers.common["Authorization"];
+            
             const response = await axios.post("http://localhost:8080/api/auth", {
                 username,
                 password,
             });
 
-            const { token, role, usuarioId, funcionarioId } = response.data;
+            const { token, role, usuarioId, funcionarioId, nome } = response.data;
             const userId = usuarioId ?? funcionarioId;
 
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);
             localStorage.setItem("userId", userId);
-            setUser({ token, role, userId });
+            localStorage.getItem("nome", nome);
+            setUser({ token, role, userId, nome });
 
             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
             console.log("Role recebido do backend:", role);
             console.log("UserId recebido do backend:", userId);
+            console.log("Nome recebido do backend:", nome);
 
             router.push("/");
         } catch (error) {
@@ -124,6 +130,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("token");
         localStorage.removeItem("role");
         localStorage.removeItem("userId");
+        localStorage.removeItem("nome");
         setUser(null);
         delete axios.defaults.headers.common["Authorization"];
         router.push("/login");

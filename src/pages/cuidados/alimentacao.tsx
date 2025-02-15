@@ -18,6 +18,7 @@ function EducacaoInfantilA() {
   const { userId } = user;
   const [lista, setLista] = useState<{ conteudo: string, id: number }[]>([]);
   const [conteudo, setConteudo] = useState('');
+
   const [alimentacaoRequest, setAlimentacaoRequest] = useState({
     idFuncionario: userId,
     mensagem: '',
@@ -148,28 +149,31 @@ function EducacaoInfantilA() {
           )}
 
           {lista.map((item) => (
-            <Box
-              key={item.id}
-              justifyContent="center"
-              display="flex"
-              alignItems="center"
-              w="100%"
-              flexDirection={{ base: 'column', md: 'row' }} // Coluna em mobile, linha em desktop
-              textAlign={{ base: 'center', md: 'left' }} // Centraliza texto em mobile
-            >
-              <CardTexto>{item.conteudo}</CardTexto>
-              {role === 'ROLE_FUNCIONARIO_ADMIN' && (
-                <Button
-                  colorScheme="red"
-                  ml={{ base: 0, md: 2 }} // Remove margem em mobile
-                  mt={{ base: 2, md: 0 }} // Adiciona margem no topo em mobile
-                  onClick={() => remover(item.id)}
-                >
-                  Remover
-                </Button>
-              )}
-            </Box>
+            item.conteudo && (
+              <Box
+                key={item.id}
+                justifyContent="center"
+                display="flex"
+                alignItems="center"
+                w="100%"
+                flexDirection={{ base: 'column', md: 'row' }}
+                textAlign={{ base: 'center', md: 'left' }}
+              >
+                <CardTexto>{item.conteudo}</CardTexto>
+                {role === 'ROLE_FUNCIONARIO_ADMIN' && (
+                  <Button
+                    colorScheme="red"
+                    ml={{ base: 0, md: 2 }}
+                    mt={{ base: 2, md: 0 }}
+                    onClick={() => remover(item.id)}
+                  >
+                    Remover
+                  </Button>
+                )}
+              </Box>
+            )
           ))}
+
         </VStack>
       </Box>
       <Footer />

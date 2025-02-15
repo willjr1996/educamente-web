@@ -10,15 +10,16 @@ import axios from "axios";
 import { notifyError, notifySuccess } from '~utils/utils'
 import { useAuth } from "~contexts/AuthContext";
 import { FormControl, FormLabel } from '@chakra-ui/react'
+import Footer from "~components/Footer";
 
 function EducacaoInfantilC() {
   const { user } = useAuth();
   const { role } = user;
-  const { id } = user;
+  const { userId } = user;
   const [lista, setLista] = useState<{ conteudo: string, id: number }[]>([]);
   const [conteudo, setConteudo] = useState('');
   const [comportamentoRequest, setComportamentoRequest] = useState({
-    idFuncionario: id,
+    idFuncionario: userId,
     mensagem: '',
     dataRegistro: new Date().toLocaleDateString('pt-BR'),
   });
@@ -227,6 +228,7 @@ function EducacaoInfantilC() {
           ))}
         </VStack>
       </Box>
+      <Footer />
     </>
   );
 }
